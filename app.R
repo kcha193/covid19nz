@@ -177,7 +177,8 @@ server <- function(input, output, session) {
         mutate(Cases = cumsum(n))
       
       
-      hchart(dat, "line", hcaes(x = Date, y = Cases))
+      hchart(dat, "line", hcaes(x = Date, y = Cases),
+             name = "Total cases")
     })
   
   output$bar_plot <- 
@@ -188,7 +189,8 @@ server <- function(input, output, session) {
         count(Date) %>% 
         rename(Cases = n)
       
-      hchart(dat, "column", hcaes(x = Date, y = Cases))
+      hchart(dat, "column", hcaes(x = Date, y = Cases),
+             name = "Total cases")
       
     })
   
@@ -206,7 +208,8 @@ server <- function(input, output, session) {
       highchart() %>% 
         hc_xAxis(categories = dat$DHB) %>% 
         hc_add_series(data = dat, type = "bar", hcaes(x = DHB, y = Cases),
-                      showInLegend = FALSE)
+                      showInLegend = FALSE,
+                      name = "Total cases")
       
     
       
@@ -225,7 +228,8 @@ server <- function(input, output, session) {
       highchart() %>% 
         hc_xAxis(categories = dat$Sex) %>% 
         hc_add_series(data = dat, type = "bar", hcaes(x = Sex, y = Cases),
-                      showInLegend = FALSE)
+                      showInLegend = FALSE,
+                      name = "Total cases")
       
     })
   
@@ -243,7 +247,8 @@ server <- function(input, output, session) {
       highchart() %>% 
         hc_xAxis(categories = dat$Age) %>% 
         hc_add_series(data = dat, type = "bar", hcaes(x = Age, y = Cases),
-                      showInLegend = FALSE)
+                      showInLegend = FALSE,
+                      name = "Total cases")
     })
 
   data_map_final <- reactive({
