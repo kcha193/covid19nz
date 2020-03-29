@@ -17,34 +17,34 @@ date_range <- range(covid_19_cases$Date, na.rm = TRUE)
 ui <- dashboardPage(
   dashboardHeader(title = "COVID-19 in NZ"),
   dashboardSidebar(
-    
-    h3("Note:"), 
-    p("Plots are based from the case data in ", 
-      a("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details",
-        href = "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details"),
-      ", which is under the Ministry of Health's creative commons license:",
-      a("https://www.health.govt.nz/about-site/copyright",
-        href = "https://www.health.govt.nz/about-site/copyright"), "."),
-    
+    selectInput("DHB", "Select a DHB:",
+                choices = c(nzDHB_simp$DHB, "New Zealand"), 
+                selected = "New Zealand", width = "200%"),
     sliderInput("date_range",
                 "Dates:",
                 min = as.Date(date_range[1],"%Y-%m-%d"),
                 max = as.Date(date_range[2],"%Y-%m-%d"),
                 value = as.Date(date_range[2],"%Y-%m-%d"),
                 timeFormat="%Y-%m-%d", animate = TRUE),
-    
-    selectInput("DHB", "Select a DHB:",
-                choices = c(nzDHB_simp$DHB, "New Zealand"), 
-                selected = "New Zealand"),
     checkboxInput("confirmed", "Click for confirmed cases",
                   value = FALSE, width = "200%"),
     checkboxInput("auck", "Click to zoom into Auckland",
                   value = FALSE, width = "200%"),
+    h4("Note:"), 
+    p("Plots are based from the case data in ", 
+      a("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details",
+        href = "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details"),
+      ", which is under the Ministry of Health's creative commons license:",
+      a("https://www.health.govt.nz/about-site/copyright",
+        href = "https://www.health.govt.nz/about-site/copyright"), "."),
+   
     box(
       h4("Latest Update:"),
       h4("2019-03-29"),
       h4("Contact email:"),
       h5(a("Kevin Chang", href = "mailto:kevin.ct.chang@gmail.com")),
+      p("Source code can be founded in ", 
+        a("https://github.com/kcha193/covid19nz", href = "https://github.com/kcha193/covid19nz")), 
       width = 12,
       background = "black"
     )
