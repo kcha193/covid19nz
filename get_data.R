@@ -4,22 +4,23 @@ library(readxl)
 library(httr)
 
 
-GET("https://www.health.govt.nz/system/files/documents/pages/covid-19-confirmed-probable-cases-29mar20.xlsx",
+GET("https://www.health.govt.nz/system/files/documents/pages/covid-cases-30_mar_2020.xlsx",
     write_disk(tf <- tempfile(fileext = ".xlsx")))
 
 covid_19_confirmed_cases <- 
-  read_excel(tf, sheet = 1) %>% 
+  read_excel(tf, sheet = 1, skip = 3) %>% 
   mutate(Confirmed = TRUE)
 
 covid_19_probable_cases <- 
-  read_excel(tf, sheet = 2)%>% 
+  read_excel(tf, sheet = 2, skip = 3)%>% 
   mutate(Confirmed = FALSE)
 
 covid_19_cases <- 
   covid_19_confirmed_cases %>% 
+  rename(ReportDate = `Report Date`) %>%
   bind_rows(covid_19_probable_cases) %>% 
-  rename(Date = `Date of report`,
-         Age = `Age group`) %>%
+  rename(Date = `ReportDate`,
+         Age = `Age Group`) %>%
   mutate(Age = ifelse(is.na(Age), "Missing", Age),
          Sex = ifelse(is.na(Sex), "Unknown", Sex)) %>%
   mutate(Age = factor(Age, 
