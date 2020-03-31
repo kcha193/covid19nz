@@ -28,20 +28,21 @@ covid_19_probable_cases <-
   "[["(2) %>% 
   mutate(Confirmed = FALSE)
 
+covid_19_probable_cases$`Age group`[39] <- "60 to 69"
+
 covid_19_cases <- 
   covid_19_confirmed_cases %>% 
   bind_rows(covid_19_probable_cases) %>% 
   rename(Date = `Date of report`,
          Age = `Age group`) %>%
-  mutate(Age = ifelse(Age =="", "Unknown", Age),
+  mutate(Age = ifelse(Age =="" | is.na(Age), "Unknown", Age),
          Sex = ifelse(Sex =="", "Unknown", Sex)) %>%
   mutate(
     Date = as.Date(Date,  "%d/%m/%Y"), 
-    Age = factor(Age, 
-                      levels = c("Unknown", "<1", "1 to 4",
+    Age = factor(Age, levels = c("Unknown", "<1", "1 to 4",
                                  "5 to 9", "10 to 14", "15 to 19",
                                  "20 to 29", "30 to 39", "40 to 49",
-                                 "50 to 59", "60 to 69", "70+" )))
+                                 "50 to 59", "60 to 69", "70+" ))) 
 
 
   
