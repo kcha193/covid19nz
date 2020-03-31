@@ -4,7 +4,6 @@ library(shiny)
 library(shinydashboard)
 library(leaflet)
 library(RColorBrewer)
-library(readxl)
 library(tidyverse)
 library(DT)
 library(highcharter)
@@ -22,9 +21,9 @@ ui <- dashboardPage(
                 selected = "New Zealand", width = "200%"),
     sliderInput("date_range",
                 "Dates:",
-                min = as.Date(date_range[1],"%Y-%m-%d"),
-                max = as.Date(date_range[2],"%Y-%m-%d"),
-                value = as.Date(date_range[2],"%Y-%m-%d"),
+                min = date_range[1],
+                max = date_range[2],
+                value = date_range[2],
                 timeFormat="%Y-%m-%d", animate = TRUE),
     checkboxInput("confirmed", "Click for confirmed cases",
                   value = FALSE, width = "200%"),
@@ -40,7 +39,7 @@ ui <- dashboardPage(
    
     box(
       h4("Latest Update:"),
-      h4("2019-03-29"),
+      h4(date_updated),
       h4("Contact email:"),
       h5(a("Kevin Chang", href = "mailto:kevin.ct.chang@gmail.com")),
       p("Source code can be founded in ", 

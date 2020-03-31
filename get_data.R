@@ -1,29 +1,43 @@
 
 library(tidyverse)
-library(readxl)
-library(httr)
+library(rvest)
 
 
-GET("https://www.health.govt.nz/system/files/documents/pages/covid-cases-30_mar_2020.xlsx",
-    write_disk(tf <- tempfile(fileext = ".xlsx")))
+# GET("https://www.health.govt.nz/system/files/documents/pages/covidcase_list_31_mar_2020_for_web_-_updated.xlsx",
+#     write_disk(tf <- tempfile(fileext = ".xlsx")))
+
+current_Cases_detail <- 
+  read_html("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details")
+
+
+date_updated <- 
+  current_Cases_detail %>% 
+  html_nodes("#node-10866") %>% 
+  html_text(TRUE) %>% 
+  str_extract( "\\d+ (March|April) \\d+")
 
 covid_19_confirmed_cases <- 
-  read_excel(tf, sheet = 1, skip = 3) %>% 
+  current_Cases_detail %>% 
+  html_table() %>% 
+  "[["(1) %>% 
   mutate(Confirmed = TRUE)
 
 covid_19_probable_cases <- 
-  read_excel(tf, sheet = 2, skip = 3)%>% 
+  current_Cases_detail %>% 
+  html_table() %>% 
+  "[["(2) %>% 
   mutate(Confirmed = FALSE)
 
 covid_19_cases <- 
   covid_19_confirmed_cases %>% 
-  rename(ReportDate = `Report Date`) %>%
   bind_rows(covid_19_probable_cases) %>% 
-  rename(Date = `ReportDate`,
-         Age = `Age Group`) %>%
-  mutate(Age = ifelse(is.na(Age), "Missing", Age),
-         Sex = ifelse(is.na(Sex), "Unknown", Sex)) %>%
-  mutate(Age = factor(Age, 
+  rename(Date = `Date of report`,
+         Age = `Age group`) %>%
+  mutate(Age = ifelse(Age =="", "Unknown", Age),
+         Sex = ifelse(Sex =="", "Unknown", Sex)) %>%
+  mutate(
+    Date = as.Date(Date,  "%d/%m/%Y"), 
+    Age = factor(Age, 
                       levels = c("Unknown", "<1", "1 to 4",
                                  "5 to 9", "10 to 14", "15 to 19",
                                  "20 to 29", "30 to 39", "40 to 49",
