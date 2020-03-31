@@ -12,9 +12,8 @@ current_Cases_detail <-
 
 date_updated <- 
   current_Cases_detail %>% 
-  html_nodes("#node-10866") %>% 
-  html_text(TRUE) %>% 
-  str_extract( "\\d+ (March|April) \\d+")
+  html_nodes(".georgia-italic") %>% 
+  html_text(TRUE) 
 
 covid_19_confirmed_cases <- 
   current_Cases_detail %>% 

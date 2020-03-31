@@ -16,6 +16,7 @@ date_range <- range(covid_19_cases$Date, na.rm = TRUE)
 ui <- dashboardPage(
   dashboardHeader(title = "COVID-19 in NZ"),
   dashboardSidebar(
+    h4("Ministry of Health website", date_updated[1]),
     selectInput("DHB", "Select a DHB:",
                 choices = c(nzDHB_simp$DHB, "New Zealand"), 
                 selected = "New Zealand", width = "200%"),
@@ -38,8 +39,6 @@ ui <- dashboardPage(
         href = "https://www.health.govt.nz/about-site/copyright"), "."),
    
     box(
-      h4("Latest Update:"),
-      h4(date_updated),
       h4("Contact email:"),
       h5(a("Kevin Chang", href = "mailto:kevin.ct.chang@gmail.com")),
       p("Source code can be founded in ", 
