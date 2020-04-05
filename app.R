@@ -18,7 +18,7 @@ ui <- dashboardPage(
   dashboardSidebar(
     h4("Ministry of Health website", date_updated[1]),
     # selectInput("DHB", "Select a DHB:",
-    #             choices = c(nzDHB_simp$DHB, "New Zealand"), 
+    #             choices = c(nzDHB_simp$DHB, "New Zealand"),
     #             selected = "New Zealand", width = "200%"),
     # sliderInput("date_range",
     #             "Dates:",
@@ -30,78 +30,111 @@ ui <- dashboardPage(
     #               value = FALSE, width = "200%"),
     # checkboxInput("auck", "Click to zoom into Auckland",
     #               value = FALSE, width = "200%"),
-    h4("Note:"), 
-    p("Plots are based from the data collected by Chris Knox of New Zealand Herald data journalism team in ", 
-      a("https://github.com/nzherald/nz-covid19-data", 
-        href = "https://github.com/nzherald/nz-covid19-data"), 
+    h4("Note:"),
+    p(
+      "Plots are based from the data collected by Chris Knox of New Zealand Herald data journalism team in ",
+      a("https://github.com/nzherald/nz-covid19-data",
+        href = "https://github.com/nzherald/nz-covid19-data"),
       " and Ministry of Health current cases website in ",
-      a("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details",
-        href = "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details"),
+      a(
+        "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details",
+        href = "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details"
+      ),
       ", which is under the Ministry of Health's creative commons license:",
       a("https://www.health.govt.nz/about-site/copyright",
-        href = "https://www.health.govt.nz/about-site/copyright"), "."),
-   
+        href = "https://www.health.govt.nz/about-site/copyright"),
+      ". The gobal data came from Johns Hopkins CSSE in",
+      a("https://github.com/CSSEGISandData/COVID-19",
+        href = "https://github.com/CSSEGISandData/COVID-19"),
+      "."
+    ),
+    
     box(
       h4("Contact:"),
       h5(a("Kevin Chang", href = "mailto:kevin.ct.chang@gmail.com")),
-      p("Source code can be founded in ", 
-        a("https://github.com/kcha193/covid19nz", href = "https://github.com/kcha193/covid19nz")), 
+      p(
+        "Source code can be founded in ",
+        a("https://github.com/kcha193/covid19nz", href = "https://github.com/kcha193/covid19nz")
+      ),
       width = 12,
       background = "black"
     )
   ),
   dashboardBody(
     # Boxes need to be put in a row (or column)
-    tags$head(
-      includeScript("google-analytics.js"),
-      tags$style(HTML(".leaflet-container { background: #ADD8E6; }"))
+    tags$head(includeScript("google-analytics.js"),
+              tags$style(
+                HTML(".leaflet-container { background: #ADD8E6; }")
+              )),
+    
+    column(
+      width = 7,
+      box(
+        title = "Case data from Ministry of Health",
+        valueBoxOutput("case_Total", 6),
+        valueBoxOutput("confirmed_Total", 6),
+        width = 12
+      ),
+      tabBox(
+        title = "Daily data from NZ Herald and Johns Hopkins CSSE",
+        tabPanel("Total",
+                 highchartOutput("line_plot",  height = "580px")),
+        tabPanel("Daily",
+                 highchartOutput("bar_plot",  height = "580px")),
+        tabPanel(
+          "Global",
+          highchartOutput("line_plot_global",  height = "580px")
+        ),
+        tabPanel(
+          "Transmission",
+          highchartOutput("line_plot_cause",  height = "580px")
+        ),
+        width = 12,
+        height = 600
+      )
     ),
     
-    column(width = 5,
-           box(title = "Case data from Ministry of Health",
-             valueBoxOutput("case_Total", 6), 
-             valueBoxOutput("confirmed_Total", 6),
-             width = 12),
-    tabBox(title = "NZ cases of COVID-19", 
-           tabPanel("Map",
-                    leafletOutput("map",  height = "650px"), 
-                    
-                    p("This shapefiles of DHB are based on/includes Statistics New Zealand's data which are licensed by",
-                      a("Statistics New Zealand", href="http://www.stats.govt.nz/", shape="rect"),
-                      "for re-use under the",
-                      a("Creative Commons Attribution 4.0 International", 
-                        href="https://creativecommons.org/licenses/by/4.0/", shape="rect"),
-                      "licence.")),
-           
-           tabPanel("Data",
-                    DTOutput("data_raw",  height = "650px")), 
-           width = 12,
-           height =650)),
-    
-    column(width = 7,
-    tabBox(title = "Daily data from NZ Herald",
-      tabPanel("Total",
-               highchartOutput("line_plot",  height = "400px")),
-      tabPanel("Daily",
-               highchartOutput("bar_plot",  height = "400px")),
-      tabPanel("Transmission",
-               highchartOutput("line_plot_cause",  height = "400px")),
-      width = 12, height = 430
-    ),
-    
-    tabBox(
-      tabPanel("DHB",
-               highchartOutput("bar_dhb")),
-      tabPanel("Gender", 
-               highchartOutput("bar_gender")),
-      tabPanel("Age", 
-               highchartOutput("bar_age")),
-      tabPanel("International Travel", 
-               highchartOutput("bar_travel")),
-      tabPanel("Last country before return (Top 20)", 
-               highchartOutput("bar_last_country")),
-      width = 12,
-      height = 450)
+    column(
+      width = 5,
+      
+      tabBox(
+        title = "NZ cases of COVID-19",
+        tabPanel(
+          "Map",
+          leafletOutput("map",  height = "650px"),
+          
+          p(
+            "This shapefiles of DHB are based on/includes Statistics New Zealand's data which are licensed by",
+            a("Statistics New Zealand", href = "http://www.stats.govt.nz/", shape =
+                "rect"),
+            "for re-use under the",
+            a(
+              "Creative Commons Attribution 4.0 International",
+              href = "https://creativecommons.org/licenses/by/4.0/",
+              shape = "rect"
+            ),
+            "licence."
+          )
+        ),
+        tabPanel("DHB",
+                 highchartOutput("bar_dhb",  height = "650px")),
+        tabPanel("Gender",
+                 highchartOutput("bar_gender",  height = "650px")),
+        tabPanel("Age",
+                 highchartOutput("bar_age",  height = "650px")),
+        tabPanel("International Travel",
+                 highchartOutput("bar_travel",  height = "650px")),
+        tabPanel(
+          "Last country before return (Top 20)",
+          highchartOutput("bar_last_country",  height = "650px")
+        ),
+        
+        
+        tabPanel("Data",
+                 DTOutput("data_raw",  height = "650px")),
+        width = 12,
+        height = 650
+      )
     )
   )
 )
@@ -191,21 +224,14 @@ server <- function(input, output, session) {
       #   mutate(Cases = cumsum(n))
       
       daily_counts %>% 
-        mutate(active = totalConfirmed - recovered) %>% 
+        mutate(active = totalConfirmed - totalRecovered) %>% 
         select(Date, cumulative, totalConfirmed, totalDeaths, active) %>% 
         rename('Total cases' = cumulative, 
                'Total confirmed Cases' = totalConfirmed,
                'Total death' = totalDeaths,
-               'Total active cases' = active)  %>% 
+               'Total active confirmed cases' = active)  %>% 
         gather("Type", "Count", -Date) %>% 
-        hchart("line", hcaes(x = Date, y = Count, group = Type)) %>% 
-        hc_xAxis(plotLines = list(list(
-          value = 24.5,
-          color = '#ff0000',
-          width = 2,
-          label = list(text = "Lockdown begin",
-                       style = list( color = '#ff0000', fontWeight = 'bold'   )
-          ))))
+        hchart("line", hcaes(x = Date, y = Count, group = Type)) 
       
     })
   
@@ -213,15 +239,9 @@ server <- function(input, output, session) {
     renderHighchart({
     
       hchart(daily_counts, "column", hcaes(x = Date, y = total),
-             name = "Total cases")%>% 
-        hc_xAxis(plotLines = list(list(
-                   value = 24.5,
-                   color = '#ff0000',
-                   width = 2,
-                   label = list(text = "Lockdown begin",
-                                style = list( color = '#ff0000', fontWeight = 'bold'   )
-                   ))))
+             name = "Total cases") 
     })
+  
   
   output$line_plot_cause <- 
     renderHighchart({
@@ -237,6 +257,25 @@ server <- function(input, output, session) {
         hchart("line", hcaes(x = Date, y = Count, group = Type))
     })
   
+  output$line_plot_global <- 
+    renderHighchart({
+      
+      global_data %>% 
+        rename(State =  'Province/State', 
+               Country = 'Country/Region') %>%
+        gather( "Date",  "Count",
+                -State,  -Country, -Lat, -Long) %>% 
+        mutate(Date = as.Date(Date, "%m/%d/%y")) %>% 
+        group_by(Country, Date) %>% 
+        summarise(Count = sum(Count)) %>% 
+        filter(Country %in% 
+                 c("New Zealand", "China", "Japan", "Korea, South", "Spain",
+                   "Taiwan*", "Ireland", "US", "Australia", 
+                   "United Kingdom", "Italy")) %>% 
+        hchart("line", hcaes(x = Date, y = Count, group = Country))  %>% 
+        hc_yAxis(type = 'logarithmic',
+                 title = list(text = "Total case counts in logarithmic scale"))
+    })
   
   output$bar_dhb <-
     renderHighchart({
@@ -284,7 +323,8 @@ server <- function(input, output, session) {
       dat <-
         covid_19_dhb() %>% 
         count(Age) %>% 
-        rename(Cases = n)
+        rename(Cases = n) %>% 
+        arrange(desc(Age))
       
       highchart() %>% 
         hc_xAxis(categories = dat$Age) %>% 
