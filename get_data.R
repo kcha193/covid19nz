@@ -18,30 +18,37 @@ date_updated <-
 covid_19_confirmed_cases <- 
   current_Cases_detail %>% 
   html_table() %>% 
-  "[["(1) %>% 
-  mutate(Confirmed = TRUE)
-
+  "[["(1)%>% 
+  rename(Date = `Date of report`,
+         Age = `Age group`) %>% 
+  mutate(Confirmed = TRUE,
+         Age = str_replace(Age, "\\s+to\\s+", "-")) 
+                                  
 covid_19_probable_cases <- 
   current_Cases_detail %>% 
   html_table() %>% 
   "[["(2) %>% 
-  mutate(Confirmed = FALSE)
-
-covid_19_probable_cases$`Age group`[39] <- "60 to 69"
+  rename(Date = `Date of report`,
+         Age = `Age group`) %>% 
+  mutate(Confirmed = FALSE,
+         Age = str_replace(Age, "\\s+to\\s+", "-"))
 
 covid_19_cases <- 
   covid_19_confirmed_cases %>% 
   bind_rows(covid_19_probable_cases) %>% 
-  rename(Date = `Date of report`,
-         Age = `Age group`) %>%
   mutate(Age = ifelse(Age =="" | is.na(Age), "Unknown", Age),
          Sex = ifelse(Sex =="", "Unknown", Sex)) %>%
   mutate(
     Date = as.Date(Date,  "%d/%m/%Y"), 
-    Age = factor(Age, levels = c("Unknown", "<1", "1 to 4",
-                                 "5 to 9", "10 to 14", "15 to 19",
-                                 "20 to 29", "30 to 39", "40 to 49",
-                                 "50 to 59", "60 to 69", "70+" ))) 
+    Age = factor(Age, levels = c("Unknown", "<1", "1-4",
+                                 "5-9", "10-14", "15-19",
+                                 "20-29", "30-39", "40-49",
+                                 "50-59", "60-69", "70+" ))) 
+
+daily_counts <- 
+  read_csv("data/days.csv") %>% 
+  mutate(Date = as.character(date))
+
 
 
   
