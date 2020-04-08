@@ -45,15 +45,24 @@ covid_19_cases <-
                                  "20-29", "30-39", "40-49",
                                  "50-59", "60-69", "70+" ))) 
 
+# daily_counts <- 
+#   read_csv("https://raw.githubusercontent.com/nzherald/nz-covid19-data/master/data/days.csv") %>% 
+#   mutate(Date = as.Date(date))
+
 daily_counts <- 
   read_csv("data/days.csv") %>% 
   mutate(Date = as.Date(date))
 
+
 global_cases <- 
   read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
 
-
+global_deaths <- 
+  read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
   
+global_recovered <- 
+  read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv")
+
 # library(leaflet)
 # library(rgdal)
 # library(RColorBrewer)

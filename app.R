@@ -70,27 +70,31 @@ ui <- dashboardPage(
     column(
       width = 7,
       box(
-        title = "Case data from Ministry of Health",
-        valueBoxOutput("case_Total", 6),
-        valueBoxOutput("confirmed_Total", 6),
+        title = "Daily data from NZ Herald and Johns Hopkins CSSE",
+        valueBoxOutput("nz_Total", 4),
+        valueBoxOutput("nz_Death", 4),
+        valueBoxOutput("nz_Recovered", 4),
+        valueBoxOutput("global_Total", 4),
+        valueBoxOutput("global_Death", 4),
+        valueBoxOutput("global_Recovered", 4),
         width = 12
       ),
       tabBox(
         title = "Daily data from NZ Herald and Johns Hopkins CSSE",
         tabPanel("Total",
-                 highchartOutput("line_plot",  height = "580px")),
+                 highchartOutput("line_plot",  height = "480px")),
         tabPanel("Daily",
-                 highchartOutput("bar_plot",  height = "580px")),
+                 highchartOutput("bar_plot",  height = "480px")),
         tabPanel(
           "Global",
-          highchartOutput("line_plot_global",  height = "580px")
+          highchartOutput("line_plot_global",  height = "480px")
         ),
         tabPanel(
           "Transmission",
-          highchartOutput("line_plot_cause",  height = "580px")
+          highchartOutput("line_plot_cause",  height = "480px")
         ),
         width = 12,
-        height = 600
+        height = 500
       )
     ),
     
@@ -101,7 +105,7 @@ ui <- dashboardPage(
         title = "NZ cases of COVID-19",
         tabPanel(
           "Map",
-          leafletOutput("map",  height = "650px"),
+          leafletOutput("map",  height = "730px"),
           
           p(
             "This shapefiles of DHB are based on/includes Statistics New Zealand's data which are licensed by",
@@ -117,23 +121,23 @@ ui <- dashboardPage(
           )
         ),
         tabPanel("DHB",
-                 highchartOutput("bar_dhb",  height = "650px")),
+                 highchartOutput("bar_dhb",  height = "730px")),
         tabPanel("Gender",
-                 highchartOutput("bar_gender",  height = "650px")),
+                 highchartOutput("bar_gender",  height = "730px")),
         tabPanel("Age",
-                 highchartOutput("bar_age",  height = "650px")),
+                 highchartOutput("bar_age",  height = "730px")),
         tabPanel("International Travel",
-                 highchartOutput("bar_travel",  height = "650px")),
+                 highchartOutput("bar_travel",  height = "730px")),
         tabPanel(
           "Last country before return (Top 20)",
-          highchartOutput("bar_last_country",  height = "650px")
+          highchartOutput("bar_last_country",  height = "730px")
         ),
         
         
         tabPanel("Data",
-                 DTOutput("data_raw",  height = "650px")),
+                 DTOutput("data_raw",  height = "730px")),
         width = 12,
-        height = 650
+        height = 750
       )
     )
   )
@@ -193,26 +197,162 @@ server <- function(input, output, session) {
     })
   
   
-  output$case_Total <- renderValueBox({
+  output$nz_Total <- renderValueBox({
+    
+    latest <- 
+      daily_counts$totalCases %>% 
+      last()
+    
+    yesterday <- 
+    daily_counts$totalCases %>% 
+      nth(-2)
+    
+    change <- latest - yesterday
+    
     valueBox(
-      covid_19_dhb() %>%
-        count() %>% pull(n), "Cases overall", 
-      icon = icon("ambulance", lib = "font-awesome"),
-      color = "blue"
-    )
-  })
-  
-  
-  output$confirmed_Total <- renderValueBox({
-    valueBox(
-      covid_19_dhb() %>% 
-        filter(Confirmed) %>% 
-        count() %>% 
-        pull(n), "Case confirmed", 
-      icon = icon("first-aid", lib = "font-awesome"),
+      scales::comma(latest), 
+      subtitle =
+        paste0(" (", 
+               ifelse(change >= 0, "+", "-"), 
+               scales::comma(abs(change)), ") cases in NZ"),
+      
       color = "red"
     )
+    
+    
   })
+  
+  output$nz_Death <- renderValueBox({
+    
+    
+    latest <- 
+      daily_counts$totalDeaths %>% 
+      last()
+    
+    yesterday <- 
+      daily_counts$totalDeaths %>% 
+      nth(-2)
+    
+    change <- latest - yesterday
+    
+    
+    valueBox(
+      scales::comma(latest), 
+      subtitle =
+        paste0(" (", 
+               ifelse(change >= 0, "+", "-"), 
+               scales::comma(abs(change)), ") deaths in NZ"),
+      color = "blue"
+    )
+
+  })
+  output$nz_Recovered <- renderValueBox({
+    
+    latest <- 
+      daily_counts$totalRecovered %>% 
+      last()
+    
+    yesterday <- 
+      daily_counts$totalRecovered %>% 
+      nth(-2)
+    
+    change <- latest - yesterday
+    
+    valueBox(
+      scales::comma(latest), 
+      subtitle =
+        paste0(" (", 
+               ifelse(change >= 0, "+", "-"), 
+               scales::comma(abs(change)), ") recovered NZ"),
+      color = "green"
+    )
+
+  })
+  
+  output$global_Total <- renderValueBox({
+   
+    latest <- 
+    global_cases%>% 
+      rename(  Count = last_col()) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count)
+    
+    yesterday <- 
+      global_cases%>% 
+      rename(  Count = last_col(1)) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count)
+    
+    change <- latest - yesterday
+    
+    valueBox(
+      scales::comma(latest), 
+      subtitle =
+        paste0(" (", 
+               ifelse(change >= 0, "+", "-"), 
+               scales::comma(abs(change)), ") cases globally"),
+      
+      color = "red"
+    )
+ 
+  })
+  
+  output$global_Death <- renderValueBox({
+    
+    
+    latest <- 
+      global_deaths%>% 
+      rename(  Count = last_col()) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count)
+    
+    yesterday <- 
+      global_deaths%>% 
+      rename(  Count = last_col(1)) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count)
+    
+    change <- latest - yesterday
+    
+    valueBox(
+      scales::comma(latest), 
+      subtitle =
+        paste0(" (", 
+               ifelse(change >= 0, "+", "-"), 
+               scales::comma(abs(change)), ") deaths globally"),
+      
+      color = "blue"
+    ) })
+  
+  
+  output$global_Recovered <- renderValueBox({
+    
+    latest <- 
+      global_recovered%>% 
+      rename(  Count = last_col()) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count)
+    
+    yesterday <- 
+      global_recovered%>% 
+      rename(  Count = last_col(1)) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count)
+    
+    change <- latest - yesterday
+    
+    valueBox(
+      scales::comma(latest), 
+      subtitle =
+        paste0(" (", 
+               ifelse(change >= 0, "+", "-"), 
+               scales::comma(abs(change)), ") recovered globally"),
+      
+      color = "green"
+    )
+    
+  })
+  
   
   
   output$line_plot <- 
@@ -225,8 +365,8 @@ server <- function(input, output, session) {
       
       daily_counts %>% 
         mutate(active = totalConfirmed - totalRecovered) %>% 
-        select(Date, cumulative, totalConfirmed, totalDeaths, active) %>% 
-        rename('Total cases' = cumulative, 
+        select(Date, totalCases, totalConfirmed, totalDeaths, active) %>% 
+        rename('Total cases' = totalCases, 
                'Total confirmed Cases' = totalConfirmed,
                'Total death' = totalDeaths,
                'Total active confirmed cases' = active)  %>% 
@@ -238,7 +378,7 @@ server <- function(input, output, session) {
   output$bar_plot <- 
     renderHighchart({
     
-      hchart(daily_counts, "column", hcaes(x = Date, y = total),
+      hchart(daily_counts, "column", hcaes(x = Date, y = cases),
              name = "Total cases") 
     })
   
@@ -260,7 +400,7 @@ server <- function(input, output, session) {
   output$line_plot_global <- 
     renderHighchart({
       
-      global_data %>% 
+      global_cases %>% 
         rename(State =  'Province/State', 
                Country = 'Country/Region') %>%
         gather( "Date",  "Count",
@@ -401,12 +541,12 @@ server <- function(input, output, session) {
     
     data_map_final <- data_map_final()
     
-    pal <- colorNumeric(palette = rev(brewer.pal(11,"RdYlGn")), 
+    pal <- colorNumeric(palette = brewer.pal(11,"Blues"), 
                         domain = data_map_final@data$n)
     
     m <- 
       leaflet(data_map_final) %>%
-      addTiles(options = tileOptions(minZoom = 5, maxZoom = 5.5)) %>% 
+      addTiles(options = tileOptions(minZoom = 5, maxZoom = 10)) %>% 
       addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 0.8,
                   fillColor = ~pal(n), 
                   label = ~paste0(DHB, " DHB: ", n),
@@ -416,8 +556,7 @@ server <- function(input, output, session) {
                 title = "Number", 
                 position = "bottomright",
                 na.label = "Missing")  %>%
-      setView(lng=172, lat= -40.90056 , zoom = 5.5)  %>%
-      setMaxBounds( lng1 = 171, lng2= 173, lat1 = -42, lat2 = -40)
+      setView(lng=172, lat= -40.90056 , zoom = 5.5)  
 
     
     # if(input$auck)
