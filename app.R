@@ -4,7 +4,6 @@ library(shiny)
 library(shinydashboard)
 library(leaflet)
 library(RColorBrewer)
-library(tidyverse)
 library(DT)
 library(highcharter)
 
@@ -20,12 +19,12 @@ ui <- dashboardPage(
     # selectInput("DHB", "Select a DHB:",
     #             choices = c(nzDHB_simp$DHB, "New Zealand"),
     #             selected = "New Zealand", width = "200%"),
-    # sliderInput("date_range",
-    #             "Dates:",
-    #             min = date_range[1],
-    #             max = date_range[2],
-    #             value = date_range[2],
-    #             timeFormat="%Y-%m-%d", animate = TRUE),
+    sliderInput("date_range",
+                "Dates:",
+                min = as.Date("2020-01-22"),
+                max = last_date,
+                value = c(last_date - 15,last_date),
+                timeFormat="%Y-%m-%d", animate = FALSE),
     # checkboxInput("confirmed", "Click for confirmed cases",
     #               value = FALSE, width = "200%"),
     # checkboxInput("auck", "Click to zoom into Auckland",
@@ -33,18 +32,18 @@ ui <- dashboardPage(
     h4("Note:"),
     p(
       "Plots are based from the data collected by Chris Knox of New Zealand Herald data journalism team in ",
-      a("https://github.com/nzherald/nz-covid19-data",
+      a("here",
         href = "https://github.com/nzherald/nz-covid19-data"),
       " and Ministry of Health current cases website in ",
       a(
-        "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details",
-        href = "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details"
+        "here",
+        href = "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases"
       ),
-      ", which is under the Ministry of Health's creative commons license:",
-      a("https://www.health.govt.nz/about-site/copyright",
+      ", which is under the Ministry of Health's creative commons license",
+      a("creative commons license",
         href = "https://www.health.govt.nz/about-site/copyright"),
-      ". The gobal data came from Johns Hopkins CSSE in",
-      a("https://github.com/CSSEGISandData/COVID-19",
+      ". The global data came from Johns Hopkins CSSE in",
+      a("here",
         href = "https://github.com/CSSEGISandData/COVID-19"),
       "."
     ),
@@ -54,7 +53,8 @@ ui <- dashboardPage(
       h5(a("Kevin Chang", href = "mailto:kevin.ct.chang@gmail.com")),
       p(
         "Source code can be founded in ",
-        a("https://github.com/kcha193/covid19nz", href = "https://github.com/kcha193/covid19nz")
+        a("here", 
+          href = "https://github.com/kcha193/covid19nz")
       ),
       width = 12,
       background = "black"
@@ -149,55 +149,56 @@ ui <- dashboardPage(
 server <- function(input, output, session) {
   
   
-  
-  covid_19_date <- reactive({
+ 
+  covid_19_daily_nz <- reactive({
     
-    covid_19_final <- 
-      covid_19_cases %>% 
-       mutate(Date = as.character(Date))
+ 
+      daily_counts  %>% 
+      filter( Date <= req(input$date_range)[2] ,
+              Date >= req(input$date_range)[1] )
     
-    
-    # %>% 
-    #   filter(Date <= input$date_range) %>% 
-    #   mutate(Date = as.character(Date))
-    
-    # if(input$confirmed){
-    #   covid_19_final <- 
-    #     covid_19_final %>% 
-    #     filter(Confirmed)
-    # }
-    
-    
-    return(covid_19_final)
   }) 
   
   
-  covid_19_dhb <- 
-    reactive({
+  covid_19_dhb <- reactive({
+    
+    
+    covid_19_cases 
+    
+    
+    # %>% 
+    #    filter( Date <= input$date_range[2] ,
+    #            Date >= input$date_range[1] )
+    
+    # covid_19_dhb <- 
+    #   reactive({
+    # 
+    #     if(input$DHB != "New Zealand"){
+    #       covid_19_final <-
+    #         covid_19_date()  %>%
+    #         filter(DHB == input$DHB)
+    #     } else {
+    #       covid_19_final <-
+    #         covid_19_date()
+    # 
+    #     }
+    #     
+    #     return( covid_19_date())
+    #   })
   
-      # if(input$DHB != "New Zealand"){
-      #   covid_19_final <- 
-      #     covid_19_date()  %>% 
-      #     filter(DHB == input$DHB)
-      # } else {
-      #   covid_19_final <- 
-      #     covid_19_date()
-      #   
-      # }
-      
-      return( covid_19_date())
-    })
+  }) 
   
   
   output$data_raw <- 
     renderDT({
-      covid_19_date() %>% 
+      covid_19_dhb() %>% 
         select(Date:DHB, Confirmed)
       
     })
   
   
   output$nz_Total <- renderValueBox({
+    
     
     latest <- 
       daily_counts$totalCases %>% 
@@ -223,7 +224,6 @@ server <- function(input, output, session) {
   })
   
   output$nz_Death <- renderValueBox({
-    
     
     latest <- 
       daily_counts$totalDeaths %>% 
@@ -299,6 +299,7 @@ server <- function(input, output, session) {
   
   output$global_Death <- renderValueBox({
     
+   
     
     latest <- 
       global_deaths%>% 
@@ -358,12 +359,8 @@ server <- function(input, output, session) {
   output$line_plot <- 
     renderHighchart({
       
-      # dat <- 
-      #   covid_19_dhb() %>% 
-      #   count(Date) %>% 
-      #   mutate(Cases = cumsum(n))
       
-      daily_counts %>% 
+      covid_19_daily_nz() %>% 
         mutate(active = totalConfirmed - totalRecovered) %>% 
         select(Date, totalCases, totalConfirmed, totalDeaths, active) %>% 
         rename('Total cases' = totalCases, 
@@ -378,7 +375,7 @@ server <- function(input, output, session) {
   output$bar_plot <- 
     renderHighchart({
     
-      hchart(daily_counts, "column", hcaes(x = Date, y = cases),
+      hchart(covid_19_daily_nz(), "column", hcaes(x = Date, y = cases),
              name = "Total cases") 
     })
   
@@ -386,7 +383,7 @@ server <- function(input, output, session) {
   output$line_plot_cause <- 
     renderHighchart({
       
-      daily_counts %>% 
+      covid_19_daily_nz() %>% 
         select(Date, overseas, contact, investigating, community) %>% 
         rename('Recent overseas travel' = overseas, 
                'Contact with known case	' = contact,
@@ -405,13 +402,15 @@ server <- function(input, output, session) {
                Country = 'Country/Region') %>%
         gather( "Date",  "Count",
                 -State,  -Country, -Lat, -Long) %>% 
-        mutate(Date = as.Date(Date, "%m/%d/%y")) %>% 
+        mutate(Date = as.Date(Date, "%m/%d/%y"))  %>% 
+        filter( Date <= req(input$date_range)[2] ,
+                Date >= req(input$date_range)[1] )  %>% 
         group_by(Country, Date) %>% 
         summarise(Count = sum(Count)) %>% 
         filter(Country %in% 
-                 c("New Zealand", "China", "Japan", "Korea, South", "Spain",
-                   "Taiwan*", "Ireland", "US", "Australia", 
-                   "United Kingdom", "Italy")) %>% 
+                 c("New Zealand", "China", 
+                   "Taiwan*",  "US", "Australia", 
+                   "United Kingdom")) %>% 
         hchart("line", hcaes(x = Date, y = Count, group = Country))  %>% 
         hc_yAxis(type = 'logarithmic',
                  title = list(text = "Total case counts in logarithmic scale"))
@@ -422,7 +421,7 @@ server <- function(input, output, session) {
     
       
       dat <-
-        covid_19_date() %>% 
+        covid_19_dhb() %>% 
         count(DHB) %>% 
         rename(Cases = n) %>% 
         mutate(DHB = forcats::fct_reorder(DHB, Cases)) %>% 
@@ -479,11 +478,13 @@ server <- function(input, output, session) {
       
       dat <-
         covid_19_dhb() %>% 
+        mutate(`International travel` = 
+                 ifelse(!`International travel` %in% c("Yes", "No"), 
+                        "Unknown", `International travel`)) %>% 
         count(`International travel`) %>% 
         rename(Cases = n) %>% 
-        mutate(`International travel` = factor(`International travel`,
-                                               levels = c("Yes", "No", ""),
-                                               labels = c("Yes", "No", "Unknown")))%>% 
+        mutate(`International travel` = 
+                 factor(`International travel`, levels = c("Yes", "No", "Unknown")))%>% 
         arrange(`International travel`) 
       
       highchart() %>% 
@@ -522,7 +523,7 @@ server <- function(input, output, session) {
   data_map_final <- reactive({
     
     dat_final <-
-      covid_19_date() %>%
+      covid_19_dhb() %>%
         count(DHB)
     
     nzDHB_simp@data <- 
@@ -556,7 +557,12 @@ server <- function(input, output, session) {
                 title = "Number", 
                 position = "bottomright",
                 na.label = "Missing")  %>%
-      setView(lng=172, lat= -40.90056 , zoom = 5.5)  
+      setView(lng=172, lat= -40.90056 , zoom = 5.5)   %>%
+      addMiniMap(position = "topleft", 
+                 width = 300, height = 200, 
+                 aimingRectOptions = NULL, 
+                 shadowRectOptions = NULL, 
+                 zoomLevelFixed = 8, centerFixed = c(-36.85, 174.75))  
 
     
     # if(input$auck)

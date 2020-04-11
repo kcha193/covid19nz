@@ -1,19 +1,97 @@
 
 library(tidyverse)
 library(rvest)
+library(rdrop2)
+library(reshape2)
+
+# read it back with readRDS
+token <- readRDS("droptoken.rds")
 
 
-# GET("https://www.health.govt.nz/system/files/documents/pages/covidcase_list_31_mar_2020_for_web_-_updated.xlsx",
-#     write_disk(tf <- tempfile(fileext = ".xlsx")))
+# Updated the database ----------------------------------------------------
+
+daily_counts <- 
+  drop_read_csv("work/covid19nz/data/days.csv", stringsAsFactors = FALSE,
+                dtoken = token) %>% 
+  mutate(Date = as.Date(date, "%d/%m/%Y"))
+
+current_Cases_summary <- 
+  read_html("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases")
+
+date_updated <- 
+  current_Cases_summary %>% 
+  html_nodes(".georgia-italic") %>% 
+  html_text(TRUE) 
+
+updated_date <- 
+  as.Date(str_split(date_updated, "\\, |\\.")[[1]][2], format = "%d %B %y")
+
+
+last_date <- 
+daily_counts %>% 
+  pull(Date) %>% 
+  last()
+
+
+daily_counts_num <- 
+  daily_counts %>% 
+  select(confirmed : established)
+
+
+current_Cases_summary_tabs <- 
+  current_Cases_summary %>% 
+  html_table() %>% 
+  "[["(1) %>% 
+  rename(
+    "x" = "",
+    "total_to_date" = "Total to date",
+    "new_in_last_24_hours" = "New in last 24 hours")  %>% 
+  mutate(
+    total_to_date = 
+           as.numeric(str_replace(total_to_date, ",", "")))
+
+
+Transmission_type <- 
+  current_Cases_summary %>% 
+  html_table() %>% 
+  "[["(4) %>% 
+  rename(
+    "Transmission_type" = "Transmission type",
+    "percent_of_cases" = "% of cases")  %>% 
+  mutate(percent_of_cases = percent_of_cases %>%
+           str_replace("%", "") %>% 
+           as.numeric() %>% 
+           "/"(100))
+
+if(last_date != updated_date) {
+  
+  temp_updated <- 
+    current_Cases_summary_tabs %>% 
+   melt() %>% 
+    pull(value) %>% 
+    "["(c(7,1,8,2, 9, 3, 11, 5, 12, 6))
+  
+  daily_counts <- 
+    daily_counts_num %>% 
+    rbind(
+      c(temp_updated,
+        round(temp_updated[6] * Transmission_type$percent_of_cases)[c(1,2,4,3)], 
+        temp_updated[6])) %>% 
+    mutate(Date = c(daily_counts$Date, updated_date)) %>% 
+    mutate(date = format(Date,  "%d/%m/%Y"))
+
+  write.csv(daily_counts, file = "days.csv", row.names = FALSE)
+  drop_upload("days.csv", path = "work/covid19nz/data/",
+              dtoken = token)
+    
+  file.remove("days.csv")
+  }
+
+
 
 current_Cases_detail <- 
   read_html("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details")
 
-
-date_updated <- 
-  current_Cases_detail %>% 
-  html_nodes(".georgia-italic") %>% 
-  html_text(TRUE) 
 
 covid_19_confirmed_cases <- 
   current_Cases_detail %>% 
@@ -45,13 +123,13 @@ covid_19_cases <-
                                  "20-29", "30-39", "40-49",
                                  "50-59", "60-69", "70+" ))) 
 
-# daily_counts <- 
-#   read_csv("https://raw.githubusercontent.com/nzherald/nz-covid19-data/master/data/days.csv") %>% 
+# daily_counts <-
+#   read_csv("https://raw.githubusercontent.com/nzherald/nz-covid19-data/master/data/days.csv") %>%
 #   mutate(Date = as.Date(date))
 
-daily_counts <- 
-  read_csv("data/days.csv") %>% 
-  mutate(Date = as.Date(date))
+# daily_counts <- 
+#   read_csv("data/days.csv") %>% 
+#   mutate(Date = as.Date(date))
 
 
 global_cases <- 
