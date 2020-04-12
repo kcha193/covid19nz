@@ -4,6 +4,13 @@ library(rvest)
 library(rdrop2)
 library(reshape2)
 
+# Setup your own databases
+# drop_auth()
+# 
+# token <- drop_auth()
+# saveRDS(token, file = "token.rds")
+
+
 # read it back with readRDS
 token <- readRDS("droptoken.rds")
 

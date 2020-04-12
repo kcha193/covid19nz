@@ -23,7 +23,7 @@ ui <- dashboardPage(
                 "Dates:",
                 min = as.Date("2020-01-22"),
                 max = last_date,
-                value = c(last_date - 15,last_date),
+                value = c(last_date - 20,last_date),
                 timeFormat="%Y-%m-%d", animate = FALSE),
     # checkboxInput("confirmed", "Click for confirmed cases",
     #               value = FALSE, width = "200%"),
@@ -154,8 +154,8 @@ server <- function(input, output, session) {
     
  
       daily_counts  %>% 
-      filter( Date <= req(input$date_range)[2] ,
-              Date >= req(input$date_range)[1] )
+      filter( Date <= input$date_range[2] ,
+              Date >= input$date_range[1] )
     
   }) 
   
@@ -403,8 +403,8 @@ server <- function(input, output, session) {
         gather( "Date",  "Count",
                 -State,  -Country, -Lat, -Long) %>% 
         mutate(Date = as.Date(Date, "%m/%d/%y"))  %>% 
-        filter( Date <= req(input$date_range)[2] ,
-                Date >= req(input$date_range)[1] )  %>% 
+        filter( Date <= input$date_range[2] ,
+                Date >= input$date_range[1] )  %>% 
         group_by(Country, Date) %>% 
         summarise(Count = sum(Count)) %>% 
         filter(Country %in% 
@@ -542,7 +542,7 @@ server <- function(input, output, session) {
     
     data_map_final <- data_map_final()
     
-    pal <- colorNumeric(palette = brewer.pal(11,"Blues"), 
+    pal <- colorNumeric(palette = brewer.pal(9,"Blues"), 
                         domain = data_map_final@data$n)
     
     m <- 
