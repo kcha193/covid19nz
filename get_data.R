@@ -15,62 +15,89 @@ library(reshape2)
 token <- readRDS("droptoken.rds")
 
 
-# Updated the database ----------------------------------------------------
+# Updated the daily count database ----------------------------------------------------
 
 daily_counts <- 
   drop_read_csv("work/covid19nz/data/days.csv", stringsAsFactors = FALSE,
                 dtoken = token) %>% 
   mutate(Date = as.Date(date, "%d/%m/%Y"))
 
+last_date <- 
+  daily_counts %>% 
+  pull(Date) %>% 
+  last()
+
 current_Cases_summary <- 
   read_html("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases")
 
 date_updated <- 
   current_Cases_summary %>% 
-  html_nodes(".georgia-italic") %>% 
+  html_nodes(".table-style-two caption") %>% 
   html_text(TRUE) 
+  
 
 updated_date <- 
-  as.Date(str_split(date_updated, "\\, |\\.")[[1]][2], format = "%d %B %y")
+  as.Date(str_split(date_updated[1], "\\, ")[[1]][2], format = "%d %B %y")
 
+covid_19_cases <- 
+  drop_read_csv("work/covid19nz/data/cases.csv",
+                stringsAsFactors = FALSE,
+                dtoken = token) %>% 
+  mutate(Date = as.Date(Date),
+         Age = factor(str_replace(Age, "\\s+to\\s+", "-"),
+                      levels = c("Unknown", "<1", "1-4",
+                                 "5-9", "10-14", "15-19",
+                                 "20-29", "30-39", "40-49",
+                                 "50-59", "60-69", "70+" )) )
 
-last_date <- 
-daily_counts %>% 
-  pull(Date) %>% 
-  last()
+names(covid_19_cases) <- 
+  gsub("\\.", " ", names(covid_19_cases))
 
-
-daily_counts_num <- 
-  daily_counts %>% 
-  select(confirmed : established)
-
-
-current_Cases_summary_tabs <- 
-  current_Cases_summary %>% 
-  html_table() %>% 
-  "[["(1) %>% 
-  rename(
-    "x" = "",
-    "total_to_date" = "Total to date",
-    "new_in_last_24_hours" = "New in last 24 hours")  %>% 
-  mutate(
-    total_to_date = 
-           as.numeric(str_replace(total_to_date, ",", "")))
-
-
-Transmission_type <- 
-  current_Cases_summary %>% 
-  html_table() %>% 
-  "[["(4) %>% 
-  rename(
-    "Transmission_type" = "Transmission type",
-    "percent_of_cases" = "% of cases")  %>% 
-  mutate(percent_of_cases = percent_of_cases %>%
-           str_replace("%", "") %>% 
-           as.numeric() %>% 
-           "/"(100))
 
 if(last_date != updated_date) {
+  
+  write.csv(daily_counts, 
+            file =  paste0("days_", last_date, ".csv") , row.names = FALSE)
+  
+  write.csv(covid_19_cases, 
+            file =  paste0("cases_", last_date, ".csv") , row.names = FALSE)
+  
+  
+  drop_upload(paste0("days_", last_date, ".csv"), path = "work/covid19nz/data_backup/",
+              dtoken = token)
+  
+  drop_upload(paste0("cases_", last_date, ".csv"), path = "work/covid19nz/data_backup/",
+              dtoken = token)
+  
+  daily_counts_num <- 
+    daily_counts %>% 
+    select(confirmed:established)
+  
+  current_Cases_summary_tabs <- 
+    current_Cases_summary %>% 
+    html_table() %>% 
+    "[["(1) %>% 
+    rename(
+      "x" = "",
+      "total_to_date" = "Total to date",
+      "new_in_last_24_hours" = "New in last 24 hours")  %>% 
+    mutate(
+      total_to_date = 
+        as.numeric(str_replace(total_to_date, ",", "")))
+  
+  
+  Transmission_type <- 
+    current_Cases_summary %>% 
+    html_table() %>% 
+    "[["(4) %>% 
+    rename(
+      "Transmission_type" = "Transmission type",
+      "percent_of_cases" = "% of cases")  %>% 
+    mutate(percent_of_cases = percent_of_cases %>%
+             str_replace("%", "") %>% 
+             as.numeric() %>% 
+             "/"(100))
+  
   
   temp_updated <- 
     current_Cases_summary_tabs %>% 
@@ -92,67 +119,74 @@ if(last_date != updated_date) {
               dtoken = token)
     
   file.remove("days.csv")
-  }
+
+  current_Cases_detail <-
+    read_html("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details")
+  
+  
+  covid_19_confirmed_cases <-
+    current_Cases_detail %>%
+    html_table() %>%
+    "[["(1)%>%
+    rename(Date = `Date of report`,
+           Age = `Age group`) %>%
+    mutate(Confirmed = TRUE,
+           Age = str_replace(Age, "\\s+to\\s+", "-"))
+  
+  covid_19_probable_cases <-
+    current_Cases_detail %>%
+    html_table() %>%
+    "[["(2) %>%
+    rename(Date = `Date of report`,
+           Age = `Age group`) %>%
+    mutate(Confirmed = FALSE,
+           Age = str_replace(Age, "\\s+to\\s+", "-"))
+  
+  
+  covid_19_cases_updated <-
+    covid_19_confirmed_cases %>%
+    bind_rows(covid_19_probable_cases) %>%
+    mutate(Age = ifelse(Age =="" | is.na(Age), "Unknown", Age),
+           Sex = ifelse(Sex =="" | is.na(Sex), "Unknown", Sex)) %>%
+    mutate(
+      Date = as.Date(Date,  "%d/%m/%Y"),
+      Age = factor(Age, levels = c("Unknown", "<1", "1-4",
+                                   "5-9", "10-14", "15-19",
+                                   "20-29", "30-39", "40-49",
+                                   "50-59", "60-69", "70+" )))
+  
+  covid_19_cases <- 
+    covid_19_cases %>% 
+    filter(Date < "2020-04-01") %>% 
+    bind_rows(covid_19_cases_updated) %>%
+    arrange(desc(Date))
+  
+  write.csv(covid_19_cases, file = "cases.csv", row.names = FALSE)
+  drop_upload("cases.csv", path = "work/covid19nz/data/",
+              dtoken = token)
+  
+  file.remove("cases.csv")
+}
 
 
 
-current_Cases_detail <- 
-  read_html("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details")
-
-
-covid_19_confirmed_cases <- 
-  current_Cases_detail %>% 
-  html_table() %>% 
-  "[["(1)%>% 
-  rename(Date = `Date of report`,
-         Age = `Age group`) %>% 
-  mutate(Confirmed = TRUE,
-         Age = str_replace(Age, "\\s+to\\s+", "-")) 
-                                  
-covid_19_probable_cases <- 
-  current_Cases_detail %>% 
-  html_table() %>% 
-  "[["(2) %>% 
-  rename(Date = `Date of report`,
-         Age = `Age group`) %>% 
-  mutate(Confirmed = FALSE,
-         Age = str_replace(Age, "\\s+to\\s+", "-"))
-
-covid_19_cases <- 
-  covid_19_confirmed_cases %>% 
-  bind_rows(covid_19_probable_cases) %>% 
-  mutate(Age = ifelse(Age =="" | is.na(Age), "Unknown", Age),
-         Sex = ifelse(Sex =="", "Unknown", Sex)) %>%
-  mutate(
-    Date = as.Date(Date,  "%d/%m/%Y"), 
-    Age = factor(Age, levels = c("Unknown", "<1", "1-4",
-                                 "5-9", "10-14", "15-19",
-                                 "20-29", "30-39", "40-49",
-                                 "50-59", "60-69", "70+" ))) 
-
-# daily_counts <-
-#   read_csv("https://raw.githubusercontent.com/nzherald/nz-covid19-data/master/data/days.csv") %>%
-#   mutate(Date = as.Date(date))
-
-# daily_counts <- 
-#   read_csv("data/days.csv") %>% 
-#   mutate(Date = as.Date(date))
-
+#From CSSEGISandData
 
 global_cases <- 
   read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
 
 global_deaths <- 
-  read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
+  read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv") 
   
 global_recovered <- 
   read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv")
+
+
 
 # library(leaflet)
 # library(rgdal)
 # library(RColorBrewer)
 # library(rgeos)
-
 # nzDHB <- readOGR("data", 'district-health-board-2015') %>%
 #   spTransform(CRS("+proj=longlat +datum=WGS84"))
 # 
