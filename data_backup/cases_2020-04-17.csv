@@ -1,67 +1,47 @@
 "Date","Sex","Age","DHB","International travel","Last country before return","Flight number","Flight departure date","Arrival date","Confirmed","Overseas travel"
-2020-04-18,"Female","70+","Counties Manukau",NA,"","","","",TRUE,""
-2020-04-18,"Female","70+","Auckland",NA,"","","","",FALSE,""
-2020-04-17,"Male","40-49","Lakes",NA,"","","","",TRUE,"No"
-2020-04-17,"Female","70+","MidCentral",NA,"United Kingdom","","","31/03/2020",TRUE,"Yes"
-2020-04-17,"Male","70+","MidCentral",NA,"United Kingdom","","","31/03/2020",TRUE,"Yes"
-2020-04-17,"Male","70+","South Canterbury",NA,"","","","",TRUE,""
-2020-04-17,"Male","20-29","Whanganui",NA,"","","","",TRUE,"No"
-2020-04-17,"Female","30-39","Auckland",NA,"","","","",FALSE,"No"
-2020-04-17,"Female","40-49","Bay of Plenty",NA,"","","","",FALSE,"No"
-2020-04-17,"Female","30-39","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-17,"Female","20-29","Southern",NA,"Canada","NZ0023","21/03/2020","23/03/2020",FALSE,"Yes"
-2020-04-17,"Male","<1","Southern",NA,"","","","",FALSE,""
-2020-04-17,"Female","50-59","Waitemata",NA,"","","","",FALSE,"No"
 2020-04-16,"Female","70+","Auckland",NA,"","","","",TRUE,"No"
 2020-04-16,"Male","1-4","Auckland",NA,"","","","",TRUE,"No"
 2020-04-16,"Female","15-19","Canterbury",NA,"","","","",TRUE,""
 2020-04-16,"Female","50-59","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-16,"Male","30-39","Capital and Coast",NA,"","","","",TRUE,"No"
 2020-04-16,"Male","70+","Counties Manukau",NA,"Uruguay","","","12/04/2020",TRUE,"Yes"
-2020-04-16,"Male","70+","Northland",NA,"","","","",TRUE,"No"
 2020-04-16,"Female","50-59","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-16,"Female","70+","Waitemata",NA,"","","","",TRUE,""
 2020-04-16,"Female","70+","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-16,"Male","60-69","Waitemata",NA,"Australia","","","13/04/2020",TRUE,"Yes"
-2020-04-16,"Male","70+","Auckland",NA,"","","","",FALSE,"No"
-2020-04-16,"Male","10-14","Southern",NA,"","","","",FALSE,"No"
-2020-04-16,"Female","20-29","Waikato",NA,"","","","",FALSE,"No"
-2020-04-16,"Female","50-59","Waikato",NA,"","","","",FALSE,"No"
-2020-04-15,"Male","20-29","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-15,"Male","40-49","South Canterbury",NA,"","","","",TRUE,"No"
 2020-04-15,"Female","15-19","Southern",NA,"","","","",TRUE,"No"
 2020-04-15,"Female","70+","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-15,"Female","40-49","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-15,"Female","60-69","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-15,"Male","50-59","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-15,"Male","50-59","MidCentral",NA,"","","","",FALSE,"No"
-2020-04-15,"Female","1-4","Waikato",NA,"","","","",FALSE,""
-2020-04-15,"Male","5-9","Waikato",NA,"","","","",FALSE,"No"
+2020-04-15,"Female","60-69","Capital and Coast","","","","","",FALSE,NA
+2020-04-15,"Male","50-59","Capital and Coast","","","","","",FALSE,NA
+2020-04-15,"Female","40-49","Capital and Coast","","","","","",FALSE,NA
+2020-04-15,"Male","50-59","MidCentral","No","","","","",FALSE,NA
+2020-04-15,"Male","20-29","Waikato","No","","","","",FALSE,NA
+2020-04-15,"Female","1-4","Waikato","","","","","",FALSE,NA
+2020-04-15,"Male","5-9","Waikato","","","","","",FALSE,NA
 2020-04-14,"Female","20-29","Canterbury",NA,"","","","",TRUE,""
 2020-04-14,"Female","60-69","Counties Manukau",NA,"","","","",TRUE,"No"
 2020-04-14,"Male","50-59","Counties Manukau",NA,"Australia","MFAT","12/04/2020","12/04/2020",TRUE,"Yes"
 2020-04-14,"Male","40-49","South Canterbury",NA,"","","","",TRUE,"No"
-2020-04-14,"Female","50-59","Auckland",NA,"","","","",FALSE,"No"
-2020-04-14,"Female","5-9","Bay of Plenty",NA,"","","","",FALSE,"No"
-2020-04-14,"Female","30-39","Bay of Plenty",NA,"","","","",FALSE,"No"
-2020-04-14,"Male","50-59","Bay of Plenty",NA,"","","","",FALSE,"No"
-2020-04-14,"Female","20-29","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-14,"Male","60-69","Counties Manukau",NA,"","","","",FALSE,"No"
-2020-04-14,"Male","30-39","Southern",NA,"","","","",FALSE,"No"
-2020-04-14,"Male","50-59","Southern",NA,"","","","",FALSE,"No"
-2020-04-14,"Female","30-39","Waikato",NA,"","","","",FALSE,"No"
+2020-04-14,"Female","50-59","Auckland","No","","","","",FALSE,NA
+2020-04-14,"Male","50-59","Bay of Plenty","No","","","","",FALSE,NA
+2020-04-14,"Female","5-9","Bay of Plenty","No","","","","",FALSE,NA
+2020-04-14,"Female","30-39","Bay of Plenty","","","","","",FALSE,NA
+2020-04-14,"Male","60-69","Counties Manukau","No","","","","",FALSE,NA
+2020-04-14,"Male","30-39","Southern","No","","","","",FALSE,NA
+2020-04-14,"Male","50-59","Southern","No","","","","",FALSE,NA
+2020-04-14,"Female","30-39","Waikato","No","","","","",FALSE,NA
 2020-04-13,"Female","60-69","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-13,"Male","10-14","Northland",NA,"","","","",TRUE,""
 2020-04-13,"Male","50-59","Tairawhiti",NA,"","","","",TRUE,"No"
 2020-04-13,"Male","70+","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-13,"Male","70+","Auckland",NA,"","","","",FALSE,"No"
-2020-04-13,"Female","20-29","Counties Manukau",NA,"","","","",FALSE,""
-2020-04-13,"Female","10-14","Southern",NA,"","","","",FALSE,"No"
-2020-04-13,"Female","15-19","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-13,"Female","15-19","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-13,"Female","50-59","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-13,"Female","70+","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-13,"Male","10-14","Waitemata",NA,"","","","",FALSE,"No"
+2020-04-13,"Male","70+","Auckland","No","","","","",FALSE,NA
+2020-04-13,"Female","10-14","Southern","No","","","","",FALSE,NA
+2020-04-13,"Female","70+","Waitemata","No","","","","",FALSE,NA
+2020-04-13,"Female","15-19","Waitemata","No","","","","",FALSE,NA
+2020-04-13,"Female","15-19","Waitemata","No","","","","",FALSE,NA
+2020-04-13,"Male","10-14","Waitemata","No","","","","",FALSE,NA
+2020-04-13,"Female","50-59","Waitemata","No","","","","",FALSE,NA
 2020-04-12,"Female","10-14","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-12,"Female","40-49","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-12,"Female","50-59","Capital and Coast",NA,"","","","",TRUE,"No"
@@ -73,68 +53,69 @@
 2020-04-12,"Female","30-39","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-12,"Male","60-69","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-12,"Male","60-69","Waitemata",NA,"Qatar","QR920","28/03/2020","29/03/2020",TRUE,"Yes"
-2020-04-12,"Female","40-49","Auckland",NA,"","","","",FALSE,"No"
-2020-04-12,"Female","40-49","Auckland",NA,"","","","",FALSE,"No"
-2020-04-12,"Male","40-49","Auckland",NA,"","","","",FALSE,"No"
-2020-04-12,"Male","10-14","Canterbury",NA,"","","","",FALSE,""
-2020-04-12,"Male","15-19","Capital and Coast",NA,"Australia","EK10","","21/03/2020",FALSE,"Yes"
-2020-04-12,"Female","40-49","Counties Manukau",NA,"","","","",FALSE,""
-2020-04-12,"Male","20-29","Southern",NA,"","","","",FALSE,"No"
-2020-04-12,"Male","50-59","Southern",NA,"","","","",FALSE,"No"
-2020-04-12,"Male","50-59","Southern",NA,"","","","",FALSE,"No"
-2020-04-12,"Male","50-59","Southern",NA,"","","","",FALSE,"No"
+2020-04-12,"Male","40-49","Auckland","","","","","",FALSE,NA
+2020-04-12,"Female","40-49","Auckland","No","","","","",FALSE,NA
+2020-04-12,"Female","40-49","Auckland","","","","","",FALSE,NA
+2020-04-12,"Male","10-14","Canterbury","","","","","",FALSE,NA
+2020-04-12,"Male","15-19","Capital and Coast","Yes","Australia","EK010","","21/03/2020",FALSE,NA
+2020-04-12,"Female","40-49","Counties Manukau","","","","","",FALSE,NA
+2020-04-12,"Male","20-29","Southern","No","","","","",FALSE,NA
+2020-04-12,"Male","50-59","Southern","No","","","","",FALSE,NA
+2020-04-12,"Male","50-59","Southern","No","","","","",FALSE,NA
+2020-04-12,"Male","50-59","Southern","No","","","","",FALSE,NA
 2020-04-11,"Male","30-39","Auckland",NA,"","","","27/03/2020",TRUE,"Yes"
 2020-04-11,"Male","50-59","Counties Manukau",NA,"Qatar","","","7/04/2020",TRUE,"Yes"
 2020-04-11,"Female","30-39","Northland",NA,"","","","",TRUE,"No"
 2020-04-11,"Female","30-39","South Canterbury",NA,"","","","",TRUE,""
 2020-04-11,"Female","20-29","Waikato",NA,"United Kingdom","EK448","","23/03/2020",TRUE,"Yes"
 2020-04-11,"Male","20-29","Waikato",NA,"","","","",TRUE,"No"
-2020-04-11,"Male","20-29","Waikato",NA,"England","QR8","1/04/2020","3/04/2020",TRUE,"Yes"
+2020-04-11,"Male","20-29","Waikato",NA,"England","QR008","1/04/2020","3/04/2020",TRUE,"Yes"
 2020-04-11,"Female","10-14","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-11,"Female","30-39","Waitemata",NA,"Canada","AC51","23/03/2020","25/03/2020",TRUE,"Yes"
 2020-04-11,"Female","50-59","Waitemata",NA,"","","","",TRUE,""
 2020-04-11,"Male","40-49","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-11,"Male","50-59","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-11,"Female","20-29","Auckland",NA,"United Kingdom","QR920","26/03/2020","27/03/2020",FALSE,"Yes"
-2020-04-11,"Male","40-49","Auckland",NA,"Qatar","","","31/03/2020",FALSE,"Yes"
-2020-04-11,"Male","40-49","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-11,"Female","40-49","Tairawhiti",NA,"Australia","","","24/03/2020",FALSE,"Yes"
-2020-04-11,"Female","1-4","Waikato",NA,"","","","",FALSE,""
-2020-04-11,"Female","5-9","Waikato",NA,"","","","",FALSE,"No"
-2020-04-11,"Female","20-29","Waikato",NA,"","","","",FALSE,"No"
-2020-04-11,"Female","30-39","Waikato",NA,"","","","",FALSE,""
-2020-04-11,"Female","50-59","Waikato",NA,"","","","",FALSE,"No"
-2020-04-11,"Male","<1","Waikato",NA,"","","","",FALSE,"No"
-2020-04-11,"Female","40-49","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-11,"Female","40-49","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-11,"Male","5-9","Waitemata",NA,"","","","",FALSE,"No"
+2020-04-11,"Male","40-49","Auckland","Yes","Qatar","","","31/03/2020",FALSE,NA
+2020-04-11,"Female","20-29","Auckland","","","","","",FALSE,NA
+2020-04-11,"Male","40-49","Canterbury","No","","","","",FALSE,NA
+2020-04-11,"Female","40-49","Tairawhiti","Yes","Australia","","","24/03/2020",FALSE,NA
+2020-04-11,"Male","<1","Waikato","No","","","","",FALSE,NA
+2020-04-11,"Female","50-59","Waikato","No","","","","",FALSE,NA
+2020-04-11,"Female","5-9","Waikato","No","","","","",FALSE,NA
+2020-04-11,"Female","20-29","Waikato","No","","","","",FALSE,NA
+2020-04-11,"Female","30-39","Waikato","","","","","",FALSE,NA
+2020-04-11,"Female","1-4","Waikato","","","","","",FALSE,NA
+2020-04-11,"Female","40-49","Waitemata","No","","","","",FALSE,NA
+2020-04-11,"Female","40-49","Waitemata","No","","","","",FALSE,NA
+2020-04-11,"Male","5-9","Waitemata","No","","","","",FALSE,NA
 2020-04-10,"Female","20-29","Auckland",NA,"United Kingdom","","","21/03/2020",TRUE,"Yes"
 2020-04-10,"Female","20-29","Bay of Plenty",NA,"","","","",TRUE,"No"
-2020-04-10,"Female","50-59","Counties Manukau",NA,"Qatar","QR920","7/04/2020","8/04/2020",TRUE,"Yes"
+2020-04-10,"Female","50-59","Counties Manukau",NA,"Qatar","QR0920","7/04/2020","8/04/2020",TRUE,"Yes"
 2020-04-10,"Male","40-49","Northland",NA,"","","","",TRUE,"No"
 2020-04-10,"Female","20-29","Waitemata",NA,"United Kingdom","EK448","23/03/2020","25/03/2020",TRUE,"Yes"
 2020-04-10,"Female","30-39","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-10,"Female","70+","Waitemata",NA,"","","","",TRUE,""
 2020-04-10,"Female","70+","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-10,"Female","40-49","Auckland",NA,"","","","",FALSE,"No"
-2020-04-10,"Female","70+","Auckland",NA,"","","","",FALSE,"No"
-2020-04-10,"Female","70+","Auckland",NA,"","","","",FALSE,"No"
-2020-04-10,"Male","30-39","Auckland",NA,"","","","",FALSE,"No"
-2020-04-10,"Female","50-59","Bay of Plenty",NA,"","","","",FALSE,"No"
-2020-04-10,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-10,"Female","50-59","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-10,"Female","20-29","Hawke's Bay",NA,"Singapore","","","19/03/2020",FALSE,"Yes"
-2020-04-10,"Female","60-69","Lakes",NA,"England","CX2190","23/03/2020","25/03/2020",FALSE,"Yes"
-2020-04-10,"Female","20-29","Southern",NA,"","","","",FALSE,"No"
-2020-04-10,"Female","20-29","Southern",NA,"","","","",FALSE,"No"
-2020-04-10,"Female","30-39","Southern",NA,"Australia","","","11/03/2020",FALSE,"Yes"
-2020-04-10,"Male","15-19","Southern",NA,"","","","",FALSE,"No"
-2020-04-10,"Male","20-29","Southern",NA,"","","","",FALSE,""
-2020-04-10,"Female","20-29","Waikato",NA,"","","","",FALSE,"No"
-2020-04-10,"Female","40-49","Waikato",NA,"","","","",FALSE,""
-2020-04-10,"Female","40-49","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-10,"Male","20-29","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-10,"Male","30-39","Waitemata",NA,"","","","",FALSE,"No"
+2020-04-10,"Female","70+","Auckland","No","","","","",FALSE,NA
+2020-04-10,"Female","70+","Auckland","No","","","","",FALSE,NA
+2020-04-10,"Female","40-49","Auckland","No","","","","",FALSE,NA
+2020-04-10,"Male","30-39","Auckland","No","","","","",FALSE,NA
+2020-04-10,"Female","50-59","Bay of Plenty","No","","","","",FALSE,NA
+2020-04-10,"Female","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-10,"Female","50-59","Canterbury","No","","","","",FALSE,NA
+2020-04-10,"Female","20-29","Hawke's Bay","Yes","Singapore","","","19/03/2020",FALSE,NA
+2020-04-10,"Female","60-69","Lakes","Yes","England","CX2190","23/03/2020","25/03/2020",FALSE,NA
+2020-04-10,"Male","15-19","Southern","No","","","","",FALSE,NA
+2020-04-10,"Female","20-29","Southern","No","","","","",FALSE,NA
+2020-04-10,"Male","20-29","Southern","","","","","",FALSE,NA
+2020-04-10,"Female","20-29","Southern","No","","","","",FALSE,NA
+2020-04-10,"Female","30-39","Southern","Yes","Australia","","","11/03/2020",FALSE,NA
+2020-04-10,"Female","20-29","Waikato","No","","","","",FALSE,NA
+2020-04-10,"Female","40-49","Waikato","","","","","",FALSE,NA
+2020-04-10,"Male","30-39","Waitemata","No","","","","",FALSE,NA
+2020-04-10,"Female","40-49","Waitemata","No","","","","",FALSE,NA
+2020-04-10,"Female","30-39","Waitemata","No","","","","",FALSE,NA
+2020-04-10,"Male","20-29","Waitemata","No","","","","",FALSE,NA
 2020-04-09,"Female","30-39","Auckland",NA,"","","","",TRUE,""
 2020-04-09,"Female","60-69","Auckland",NA,"","","","",TRUE,"No"
 2020-04-09,"Male","20-29","Auckland",NA,"","","","",TRUE,"No"
@@ -149,7 +130,7 @@
 2020-04-09,"Male","20-29","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-09,"Male","40-49","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-09,"Male","15-19","Capital and Coast",NA,"","","","",TRUE,"No"
-2020-04-09,"Male","40-49","Capital and Coast",NA,"Qatar","NZ19K","3/03/2020","31/03/2020",TRUE,"Yes"
+2020-04-09,"Male","40-49","Capital and Coast",NA,"Qatar","NZ19K","","31/03/2020",TRUE,"Yes"
 2020-04-09,"Female","15-19","Counties Manukau",NA,"","","","",TRUE,"No"
 2020-04-09,"Female","40-49","Counties Manukau",NA,"","","","",TRUE,"No"
 2020-04-09,"Female","60-69","Counties Manukau",NA,"Indonesia","EK450","","22/03/2020",TRUE,"Yes"
@@ -165,29 +146,29 @@
 2020-04-09,"Female","10-14","Waitemata",NA,"","","","",TRUE,"Yes"
 2020-04-09,"Female","40-49","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-09,"Male","30-39","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-09,"Female","20-29","Auckland",NA,"","","","",FALSE,""
-2020-04-09,"Male","1-4","Auckland",NA,"","","","",FALSE,"No"
-2020-04-09,"Male","5-9","Auckland",NA,"","","","",FALSE,""
-2020-04-09,"Female","1-4","Bay of Plenty",NA,"","","","",FALSE,""
-2020-04-09,"Female","1-4","Bay of Plenty",NA,"","","","",FALSE,"No"
-2020-04-09,"Female","10-14","Canterbury",NA,"","","","",FALSE,""
-2020-04-09,"Female","10-14","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-09,"Female","20-29","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-09,"Male","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-09,"Male","40-49","Canterbury",NA,"","","","",FALSE,""
-2020-04-09,"Female","30-39","Hawke's Bay",NA,"","","","",FALSE,"No"
-2020-04-09,"Male","20-29","Northland",NA,"","","","",FALSE,"No"
-2020-04-09,"Female","20-29","Southern",NA,"United Kingdom","","","21/03/2020",FALSE,"Yes"
-2020-04-09,"Female","50-59","Southern",NA,"","","","",FALSE,"No"
-2020-04-09,"Female","40-49","Waikato",NA,"","","","",FALSE,"No"
+2020-04-09,"Male","1-4","Auckland","No","","","","",FALSE,NA
+2020-04-09,"Male","5-9","Auckland","","","","","",FALSE,NA
+2020-04-09,"Female","20-29","Auckland","","","","","",FALSE,NA
+2020-04-09,"Female","1-4","Bay of Plenty","No","","","","",FALSE,NA
+2020-04-09,"Female","1-4","Bay of Plenty","","","","","",FALSE,NA
+2020-04-09,"Female","10-14","Canterbury","No","","","","",FALSE,NA
+2020-04-09,"Female","10-14","Canterbury","","","","","",FALSE,NA
+2020-04-09,"Male","40-49","Canterbury","","","","","",FALSE,NA
+2020-04-09,"Female","20-29","Canterbury","No","","","","",FALSE,NA
+2020-04-09,"Male","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-09,"Female","30-39","Hawke's Bay","No","","","","",FALSE,NA
+2020-04-09,"Male","20-29","Northland","No","","","","",FALSE,NA
+2020-04-09,"Female","50-59","Southern","No","","","","",FALSE,NA
+2020-04-09,"Female","20-29","Southern","Yes","United Kingdom","","","21/03/2020",FALSE,NA
+2020-04-09,"Female","40-49","Waikato","","","","","",FALSE,NA
 2020-04-08,"Female","30-39","Auckland",NA,"","","","",TRUE,""
 2020-04-08,"Female","30-39","Auckland",NA,"","","","",TRUE,"No"
 2020-04-08,"Female","50-59","Auckland",NA,"Qatar","","","31/03/2020",TRUE,"Yes"
 2020-04-08,"Female","60-69","Canterbury",NA,"United States of America","NZ523","19/03/2020","19/03/2020",TRUE,"Yes"
-2020-04-08,"Female","20-29","Capital and Coast",NA,"United States of America","NZ1","25/03/2020","27/03/2020",TRUE,"Yes"
+2020-04-08,"Female","20-29","Capital and Coast",NA,"United States of America","NZ001","25/03/2020","27/03/2020",TRUE,"Yes"
 2020-04-08,"Female","40-49","Capital and Coast",NA,"Qatar","QR920","26/03/2020","27/03/2020",TRUE,"Yes"
 2020-04-08,"Male","40-49","Capital and Coast",NA,"Japan","","","28/03/2020",TRUE,"Yes"
-2020-04-08,"Female","40-49","Counties Manukau",NA,"United Kingdom","QR920","28/03/2020","29/03/2020",TRUE,"Yes"
+2020-04-08,"Female","40-49","Counties Manukau",NA,"United Kingdom","QR0920","28/03/2020","29/03/2020",TRUE,"Yes"
 2020-04-08,"Male","20-29","Counties Manukau",NA,"England","QR920","2/04/2020","3/04/2020",TRUE,"Yes"
 2020-04-08,"Female","40-49","Hawke's Bay",NA,"","","","",TRUE,"No"
 2020-04-08,"Female","30-39","South Canterbury",NA,"","","","",TRUE,"No"
@@ -197,16 +178,15 @@
 2020-04-08,"Female","20-29","Waitemata",NA,"Canada","NZ23","","23/03/2020",TRUE,"Yes"
 2020-04-08,"Female","40-49","Waitemata",NA,"","","","",TRUE,""
 2020-04-08,"Female","50-59","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-08,"Male","40-49","Auckland",NA,"","","","",FALSE,"No"
-2020-04-08,"Female","20-29","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-08,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-08,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-08,"Male","30-39","Canterbury",NA,"Australia","","","16/03/2020",FALSE,"Yes"
-2020-04-08,"Female","20-29","Southern",NA,"","","","",FALSE,"No"
-2020-04-08,"Female","40-49","Waikato",NA,"","","","",FALSE,""
-2020-04-08,"Female","40-49","Waikato",NA,"","","","",FALSE,"No"
-2020-04-08,"Female","60-69","Waikato",NA,"","","","",FALSE,"No"
-2020-04-08,"Female","20-29","Waitemata",NA,"","","","",FALSE,"No"
+2020-04-08,"Male","40-49","Auckland","No","","","","",FALSE,NA
+2020-04-08,"Male","30-39","Canterbury","Yes","Australia","","","16/03/2020",FALSE,NA
+2020-04-08,"Female","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-08,"Female","20-29","Canterbury","No","","","","",FALSE,NA
+2020-04-08,"Female","20-29","Southern","No","","","","",FALSE,NA
+2020-04-08,"Female","60-69","Waikato","No","","","","",FALSE,NA
+2020-04-08,"Female","40-49","Waikato","","","","","",FALSE,NA
+2020-04-08,"Female","40-49","Waikato","No","","","","",FALSE,NA
+2020-04-08,"Female","20-29","Waitemata","No","","","","",FALSE,NA
 2020-04-07,"Male","50-59","Auckland",NA,"","","","",TRUE,"No"
 2020-04-07,"Male","50-59","Bay of Plenty",NA,"Canada","NZ23","23/03/2020","25/03/2020",TRUE,"Yes"
 2020-04-07,"Male","30-39","Canterbury",NA,"","","","",TRUE,"No"
@@ -231,24 +211,25 @@
 2020-04-07,"Male","40-49","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-07,"Male","50-59","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-07,"Male","50-59","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-07,"Female","50-59","Auckland",NA,"","","","",FALSE,"No"
-2020-04-07,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-07,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-07,"Female","50-59","Canterbury",NA,"United Kingdom","","","20/03/2020",FALSE,"Yes"
-2020-04-07,"Female","50-59","Counties Manukau",NA,"Australia","NZ104","19/03/2020","19/03/2020",FALSE,"Yes"
-2020-04-07,"Female","10-14","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-07,"Female","40-49","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-07,"Female","40-49","Southern",NA,"","","","",FALSE,"No"
-2020-04-07,"Male","20-29","Southern",NA,"","","","",FALSE,"No"
-2020-04-07,"Female","40-49","Waikato",NA,"","SQ281","16/03/2020","",FALSE,""
-2020-04-07,"Male","50-59","Waikato",NA,"","","","",FALSE,"No"
-2020-04-07,"Female","40-49","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-07,"Male","20-29","Waitemata",NA,"","","","",FALSE,"No"
+2020-04-07,"Male","10-14","Auckland","No","","","","",FALSE,NA
+2020-04-07,"Female","50-59","Auckland","No","","","","",FALSE,NA
+2020-04-07,"Female","50-59","Canterbury","Yes","United Kingdom","","","20/03/2020",FALSE,NA
+2020-04-07,"Female","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-07,"Female","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-07,"Female","50-59","Counties Manukau","Yes","Australia","NZ104","19/03/2020","19/03/2020",FALSE,NA
+2020-04-07,"Female","10-14","Nelson Marlborough","No","","","","",FALSE,NA
+2020-04-07,"Female","40-49","Nelson Marlborough","","","","","",FALSE,NA
+2020-04-07,"Female","40-49","Southern","No","","","","",FALSE,NA
+2020-04-07,"Male","20-29","Southern","No","","","","",FALSE,NA
+2020-04-07,"Male","50-59","Waikato","No","","","","",FALSE,NA
+2020-04-07,"Female","40-49","Waikato","","","SQ281","16/03/2020","",FALSE,NA
+2020-04-07,"Female","40-49","Waitemata","No","","","","",FALSE,NA
+2020-04-07,"Male","20-29","Waitemata","No","","","","",FALSE,NA
 2020-04-06,"Female","20-29","Auckland",NA,"","","","",TRUE,"No"
 2020-04-06,"Female","20-29","Auckland",NA,"","","","",TRUE,"No"
 2020-04-06,"Male","50-59","Auckland",NA,"","","","",TRUE,"No"
 2020-04-06,"Female","20-29","Bay of Plenty",NA,"Canada","NZ8133","","24/03/2020",TRUE,"Yes"
-2020-04-06,"Male","15-19","Bay of Plenty",NA,"","NZ676","26/03/2020","",TRUE,"No"
+2020-04-06,"Male","15-19","Bay of Plenty",NA,"","NZ0676","26/03/2020","",TRUE,"No"
 2020-04-06,"Female","20-29","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-06,"Female","50-59","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-06,"Female","60-69","Canterbury",NA,"","","","",TRUE,"No"
@@ -274,29 +255,29 @@
 2020-04-06,"Male","30-39","Southern",NA,"","","","",TRUE,"No"
 2020-04-06,"Female","15-19","Waikato",NA,"","","","",TRUE,"No"
 2020-04-06,"Male","40-49","Waikato",NA,"","","","",TRUE,"No"
-2020-04-06,"Female","5-9","Auckland",NA,"","","","",FALSE,"No"
-2020-04-06,"Male","1-4","Auckland",NA,"","","","",FALSE,"No"
-2020-04-06,"Male","30-39","Auckland",NA,"","","","",FALSE,""
-2020-04-06,"Female","40-49","Bay of Plenty",NA,"","","","",FALSE,"No"
-2020-04-06,"Male","30-39","Bay of Plenty",NA,"","NZ8502","25/03/2020","",FALSE,"No"
-2020-04-06,"Female","20-29","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-06,"Female","70+","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-06,"Male","20-29","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-06,"Male","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-06,"Male","50-59","Canterbury",NA,"","","","",FALSE,""
-2020-04-06,"Male","60-69","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-06,"Male","50-59","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-06,"Female","30-39","Counties Manukau",NA,"","","","",FALSE,"No"
-2020-04-06,"Female","50-59","Counties Manukau",NA,"","","","",FALSE,""
-2020-04-06,"Male","5-9","Counties Manukau",NA,"","","","",FALSE,"No"
-2020-04-06,"Female","40-49","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-06,"Male","50-59","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-06,"Female","15-19","Waikato",NA,"","","","",FALSE,""
-2020-04-06,"Female","20-29","Waikato",NA,"","","","",FALSE,"No"
-2020-04-06,"Female","30-39","Waikato",NA,"","","","",FALSE,"No"
-2020-04-06,"Female","50-59","Waikato",NA,"","","","",FALSE,"No"
-2020-04-06,"Male","50-59","Waikato",NA,"","","","",FALSE,"No"
-2020-04-06,"Female","30-39","Waitemata",NA,"","","","",FALSE,"No"
+2020-04-06,"Male","1-4","Auckland","No","","","","",FALSE,NA
+2020-04-06,"Female","5-9","Auckland","No","","","","",FALSE,NA
+2020-04-06,"Male","30-39","Auckland","","","","","",FALSE,NA
+2020-04-06,"Female","40-49","Bay of Plenty","No","","","","",FALSE,NA
+2020-04-06,"Male","30-39","Bay of Plenty","No","","NZ8502","25/03/2020","",FALSE,NA
+2020-04-06,"Male","60-69","Canterbury","No","","","","",FALSE,NA
+2020-04-06,"Male","20-29","Canterbury","No","","","","",FALSE,NA
+2020-04-06,"Male","50-59","Canterbury","","","","","",FALSE,NA
+2020-04-06,"Female","70+","Canterbury","No","","","","",FALSE,NA
+2020-04-06,"Female","20-29","Canterbury","No","","","","",FALSE,NA
+2020-04-06,"Male","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-06,"Male","50-59","Capital and Coast","No","","","","",FALSE,NA
+2020-04-06,"Male","5-9","Counties Manukau","No","","","","",FALSE,NA
+2020-04-06,"Female","30-39","Counties Manukau","No","","","","",FALSE,NA
+2020-04-06,"Female","50-59","Counties Manukau","","","","","",FALSE,NA
+2020-04-06,"Male","50-59","Nelson Marlborough","No","","","","",FALSE,NA
+2020-04-06,"Female","40-49","Nelson Marlborough","No","","","","",FALSE,NA
+2020-04-06,"Female","20-29","Waikato","No","","","","",FALSE,NA
+2020-04-06,"Male","50-59","Waikato","No","","","","",FALSE,NA
+2020-04-06,"Female","50-59","Waikato","No","","","","",FALSE,NA
+2020-04-06,"Female","30-39","Waikato","No","","","","",FALSE,NA
+2020-04-06,"Female","15-19","Waikato","","","","","",FALSE,NA
+2020-04-06,"Female","30-39","Waitemata","No","","","","",FALSE,NA
 2020-04-05,"Female","20-29","Auckland",NA,"","","","",TRUE,""
 2020-04-05,"Female","20-29","Auckland",NA,"","","","22/03/2020",TRUE,"Yes"
 2020-04-05,"Female","60-69","Auckland",NA,"","","","",TRUE,"No"
@@ -313,7 +294,7 @@
 2020-04-05,"Female","60-69","Hawke's Bay",NA,"United Arab Emirates","","","17/03/2020",TRUE,"Yes"
 2020-04-05,"Male","30-39","Hawke's Bay",NA,"","NZ5005","23/03/2020","",TRUE,"No"
 2020-04-05,"Male","20-29","MidCentral",NA,"","","","",TRUE,"No"
-2020-04-05,"Male","20-29","MidCentral",NA,"United Arab Emirates","JQ290","22/03/2020","22/03/2020",TRUE,"Yes"
+2020-04-05,"Male","20-29","MidCentral",NA,"United Arab Emirates","JQ0290","22/03/2020","22/03/2020",TRUE,"Yes"
 2020-04-05,"Female","70+","Nelson Marlborough",NA,"","","","",TRUE,"No"
 2020-04-05,"Female","60-69","Northland",NA,"","","","",TRUE,"No"
 2020-04-05,"Male","30-39","Northland",NA,"","","","",TRUE,"No"
@@ -339,34 +320,34 @@
 2020-04-05,"Female","40-49","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-05,"Male","20-29","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-05,"Male","50-59","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-05,"Female","10-14","Auckland",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","15-19","Auckland",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","30-39","Auckland",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","40-49","Auckland",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","60-69","Auckland",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","60-69","Bay of Plenty",NA,"","","","",FALSE,""
-2020-04-05,"Female","20-29","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-05,"Male","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","15-19","Counties Manukau",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","40-49","Counties Manukau",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","50-59","Counties Manukau",NA,"","","","",FALSE,"No"
-2020-04-05,"Male","60-69","Hawke's Bay",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","15-19","Hutt Valley",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","15-19","MidCentral",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","10-14","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","70+","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-05,"Male","70+","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-05,"Male","70+","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","50-59","Southern",NA,"","","","",FALSE,"No"
-2020-04-05,"Male","<1","Southern",NA,"","","","",FALSE,"No"
-2020-04-05,"Male","50-59","Southern",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","30-39","Waikato",NA,"","EK448","21/03/2020","22/03/2020",FALSE,"Yes"
-2020-04-05,"Female","30-39","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-05,"Female","50-59","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-05,"Male","10-14","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-05,"Male","20-29","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-05,"Male","40-49","West Coast",NA,"","","","",FALSE,"No"
+2020-04-05,"Female","40-49","Auckland","No","","","","",FALSE,NA
+2020-04-05,"Female","10-14","Auckland","No","","","","",FALSE,NA
+2020-04-05,"Female","15-19","Auckland","No","","","","",FALSE,NA
+2020-04-05,"Male","30-39","Auckland","","","","","",FALSE,NA
+2020-04-05,"Female","60-69","Auckland","No","","","","",FALSE,NA
+2020-04-05,"Female","60-69","Bay of Plenty","","","","","",FALSE,NA
+2020-04-05,"Female","20-29","Canterbury","No","","","","",FALSE,NA
+2020-04-05,"Male","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-05,"Female","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-05,"Female","50-59","Counties Manukau","No","","","","",FALSE,NA
+2020-04-05,"Female","15-19","Counties Manukau","","","","","",FALSE,NA
+2020-04-05,"Female","40-49","Counties Manukau","","","","","",FALSE,NA
+2020-04-05,"Male","60-69","Hawke's Bay","No","","","","",FALSE,NA
+2020-04-05,"Female","15-19","Hutt Valley","No","","","","",FALSE,NA
+2020-04-05,"Female","15-19","MidCentral","No","","","","",FALSE,NA
+2020-04-05,"Male","70+","Nelson Marlborough","No","","","","",FALSE,NA
+2020-04-05,"Female","70+","Nelson Marlborough","No","","","","",FALSE,NA
+2020-04-05,"Female","10-14","Nelson Marlborough","No","","","","",FALSE,NA
+2020-04-05,"Male","70+","Nelson Marlborough","No","","","","",FALSE,NA
+2020-04-05,"Male","<1","Southern","No","","","","",FALSE,NA
+2020-04-05,"Male","50-59","Southern","No","","","","",FALSE,NA
+2020-04-05,"Female","50-59","Southern","No","","","","",FALSE,NA
+2020-04-05,"Female","30-39","Waikato","Yes","","EK448","21/03/2020","22/03/2020",FALSE,NA
+2020-04-05,"Female","30-39","Waitemata","No","","","","",FALSE,NA
+2020-04-05,"Male","20-29","Waitemata","No","","","","",FALSE,NA
+2020-04-05,"Female","50-59","Waitemata","No","","","","",FALSE,NA
+2020-04-05,"Male","10-14","Waitemata","No","","","","",FALSE,NA
+2020-04-05,"Male","40-49","West Coast","No","","","","",FALSE,NA
 2020-04-04,"Female","20-29","Auckland",NA,"Canada","NZ23","20/03/2020","22/03/2020",TRUE,"Yes"
 2020-04-04,"Female","60-69","Auckland",NA,"","","","",TRUE,"No"
 2020-04-04,"Male","20-29","Auckland",NA,"","","","24/03/2020",TRUE,"Yes"
@@ -415,36 +396,37 @@
 2020-04-04,"Male","40-49","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-04,"Male","50-59","Waitemata",NA,"United States of America","NZ1","25/03/2020","25/03/2020",TRUE,"Yes"
 2020-04-04,"Male","60-69","Waitemata",NA,"Australia","","","20/03/2020",TRUE,"Yes"
-2020-04-04,"Female","20-29","Auckland",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","5-9","Auckland",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","20-29","Auckland",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","20-29","Auckland",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","40-49","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","50-59","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","70+","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","70+","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","1-4","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","50-59","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","60-69","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","20-29","Counties Manukau",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","15-19","MidCentral",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","50-59","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","30-39","Nelson Marlborough",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","50-59","Southern",NA,"United States of America","","","18/03/2020",FALSE,"Yes"
-2020-04-04,"Female","5-9","Waikato",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","30-39","Waikato",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","15-19","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-04,"Female","20-29","Waitemata",NA,"","","","",FALSE,""
-2020-04-04,"Female","20-29","Waitemata",NA,"Australia","","","",FALSE,"Yes"
-2020-04-04,"Female","50-59","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","10-14","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","20-29","Waitemata",NA,"","","","",FALSE,""
-2020-04-04,"Male","20-29","Waitemata",NA,"United States of America","","","18/03/2020",FALSE,"Yes"
-2020-04-04,"Male","30-39","Waitemata",NA,"","","","",FALSE,""
-2020-04-04,"Male","50-59","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-04,"Male","50-59","Waitemata",NA,"","","","",FALSE,"No"
+2020-04-04,"Male","5-9","Auckland","No","","","","",FALSE,NA
+2020-04-04,"Male","20-29","Auckland","No","","","","",FALSE,NA
+2020-04-04,"Male","20-29","Auckland","No","","","","",FALSE,NA
+2020-04-04,"Female","20-29","Auckland","No","","","","",FALSE,NA
+2020-04-04,"Male","70+","Canterbury","No","","","","",FALSE,NA
+2020-04-04,"Female","70+","Canterbury","No","","","","",FALSE,NA
+2020-04-04,"Female","70+","Canterbury","No","","","","",FALSE,NA
+2020-04-04,"Female","50-59","Canterbury","No","","","","",FALSE,NA
+2020-04-04,"Female","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-04,"Female","40-49","Canterbury","No","","","","",FALSE,NA
+2020-04-04,"Female","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-04,"Female","1-4","Capital and Coast","No","","","","",FALSE,NA
+2020-04-04,"Male","60-69","Capital and Coast","No","","","","",FALSE,NA
+2020-04-04,"Female","50-59","Capital and Coast","No","","","","",FALSE,NA
+2020-04-04,"Female","20-29","Counties Manukau","No","","","","",FALSE,NA
+2020-04-04,"Male","15-19","MidCentral","No","","","","",FALSE,NA
+2020-04-04,"Male","30-39","Nelson Marlborough","No","","","","",FALSE,NA
+2020-04-04,"Female","50-59","Nelson Marlborough","No","","","","",FALSE,NA
+2020-04-04,"Male","50-59","Southern","Yes","United States of America","","","18/03/2020",FALSE,NA
+2020-04-04,"Male","30-39","Waikato","No","","","","",FALSE,NA
+2020-04-04,"Female","5-9","Waikato","No","","","","",FALSE,NA
+2020-04-04,"Male","10-14","Waitemata","No","","","","",FALSE,NA
+2020-04-04,"Male","50-59","Waitemata","No","","","","",FALSE,NA
+2020-04-04,"Male","20-29","Waitemata","Yes","United States of America","","","18/03/2020",FALSE,NA
+2020-04-04,"Female","20-29","Waitemata","Yes","Australia","","","",FALSE,NA
+2020-04-04,"Male","50-59","Waitemata","No","","","","",FALSE,NA
+2020-04-04,"Female","15-19","Waitemata","No","","","","",FALSE,NA
+2020-04-04,"Female","50-59","Waitemata","No","","","","",FALSE,NA
+2020-04-04,"Female","20-29","Waitemata","","","","","",FALSE,NA
+2020-04-04,"Male","30-39","Waitemata","","","","","",FALSE,NA
+2020-04-04,"Male","20-29","Waitemata","","","","","",FALSE,NA
 2020-04-03,"Female","10-14","Auckland",NA,"","","","",TRUE,""
 2020-04-03,"Female","40-49","Auckland",NA,"United States of America","","","8/03/2020",TRUE,"Yes"
 2020-04-03,"Male","50-59","Auckland",NA,"Philippines","CX2191","24/03/2020","25/03/2020",TRUE,"Yes"
@@ -470,8 +452,8 @@
 2020-04-03,"Female","50-59","Northland",NA,"","","","",TRUE,"No"
 2020-04-03,"Male","60-69","Northland",NA,"","","","",TRUE,""
 2020-04-03,"Female","15-19","Southern",NA,"","","","",TRUE,"No"
-2020-04-03,"Female","20-29","Southern",NA,"United Kingdom","NZ623","","24/03/2020",TRUE,"Yes"
 2020-04-03,"Female","20-29","Southern",NA,"United Kingdom","NZ5757","22/03/2020","22/03/2020",TRUE,"Yes"
+2020-04-03,"Female","20-29","Southern",NA,"United Kingdom","NZ623","","24/03/2020",TRUE,"Yes"
 2020-04-03,"Female","30-39","Southern",NA,"","","","",TRUE,"No"
 2020-04-03,"Female","40-49","Southern",NA,"","","","",TRUE,"No"
 2020-04-03,"Female","50-59","Southern",NA,"","","","",TRUE,"No"
@@ -480,7 +462,7 @@
 2020-04-03,"Female","60-69","Southern",NA,"","","","",TRUE,"No"
 2020-04-03,"Male","15-19","Southern",NA,"","","","",TRUE,"No"
 2020-04-03,"Male","20-29","Southern",NA,"United Kingdom","NZ623","23/03/2020","23/03/2020",TRUE,"Yes"
-2020-04-03,"Male","50-59","Southern",NA,"","","","",TRUE,"No"
+2020-04-03,"Male","50-59","Southern",NA,"","","","",TRUE,""
 2020-04-03,"Male","50-59","Southern",NA,"","","","",TRUE,"No"
 2020-04-03,"Male","50-59","Southern",NA,"","","","",TRUE,"No"
 2020-04-03,"Female","10-14","Waikato",NA,"","","","",TRUE,"No"
@@ -500,24 +482,24 @@
 2020-04-03,"Male","50-59","Waitemata",NA,"United States of America","NZ9","28/03/2020","30/03/2020",TRUE,"Yes"
 2020-04-03,"Male","60-69","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-03,"Male","60-69","Waitemata",NA,"United States of America","NZ1","25/03/2020","25/03/2020",TRUE,"Yes"
-2020-04-03,"Female","20-29","Auckland",NA,"","","","",FALSE,"No"
-2020-04-03,"Female","20-29","Auckland",NA,"","","","",FALSE,"No"
-2020-04-03,"Female","60-69","Auckland",NA,"","","","",FALSE,"No"
-2020-04-03,"Female","20-29","Bay of Plenty",NA,"","","","",FALSE,"No"
-2020-04-03,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-03,"Female","50-59","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-03,"Female","70+","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-03,"Male","70+","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-03,"Male","70+","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-03,"Male","15-19","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-03,"Male","50-59","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-03,"Male","60-69","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-03,"Female","40-49","Hutt Valley",NA,"","NZ5386","25/03/2020","",FALSE,"No"
-2020-04-03,"Male","20-29","Southern",NA,"Australia","","","23/03/2020",FALSE,"Yes"
-2020-04-03,"Female","30-39","Waikato",NA,"","","","",FALSE,"No"
-2020-04-03,"Male","15-19","Waikato",NA,"","","","",FALSE,"No"
-2020-04-03,"Male","20-29","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-03,"Male","50-59","Waitemata",NA,"","","","",FALSE,""
+2020-04-03,"Female","60-69","Auckland","No","","","","",FALSE,NA
+2020-04-03,"Female","20-29","Auckland","No","","","","",FALSE,NA
+2020-04-03,"Female","20-29","Auckland","No","","","","",FALSE,NA
+2020-04-03,"Female","20-29","Bay of Plenty","No","","","","",FALSE,NA
+2020-04-03,"Male","70+","Canterbury","No","","","","",FALSE,NA
+2020-04-03,"Female","70+","Canterbury","No","","","","",FALSE,NA
+2020-04-03,"Male","70+","Canterbury","No","","","","",FALSE,NA
+2020-04-03,"Female","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-03,"Female","50-59","Canterbury","No","","","","",FALSE,NA
+2020-04-03,"Male","15-19","Capital and Coast","No","","","","",FALSE,NA
+2020-04-03,"Male","60-69","Capital and Coast","No","","","","",FALSE,NA
+2020-04-03,"Male","50-59","Capital and Coast","No","","","","",FALSE,NA
+2020-04-03,"Female","40-49","Hutt Valley","No","","NZ5386","25/03/2020","",FALSE,NA
+2020-04-03,"Male","20-29","Southern","Yes","Australia","","","23/03/2020",FALSE,NA
+2020-04-03,"Male","15-19","Waikato","No","","","","",FALSE,NA
+2020-04-03,"Female","30-39","Waikato","No","","","","",FALSE,NA
+2020-04-03,"Male","20-29","Waitemata","No","","","","",FALSE,NA
+2020-04-03,"Male","50-59","Waitemata","","","","","",FALSE,NA
 2020-04-02,"Female","20-29","Auckland",NA,"","","","",TRUE,"No"
 2020-04-02,"Female","50-59","Auckland",NA,"","","","",TRUE,"No"
 2020-04-02,"Male","30-39","Auckland",NA,"","","","",TRUE,"No"
@@ -529,7 +511,7 @@
 2020-04-02,"Female","40-49","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-02,"Female","70+","Canterbury",NA,"","","","",TRUE,"No"
 2020-04-02,"Male","50-59","Canterbury",NA,"","","","",TRUE,"No"
-2020-04-02,"Female","20-29","Capital and Coast",NA,"United Arab Emirates","EK4","21/03/2020","21/03/2020",TRUE,"Yes"
+2020-04-02,"Female","20-29","Capital and Coast",NA,"United Arab Emirates","EK004","21/03/2020","21/03/2020",TRUE,"Yes"
 2020-04-02,"Female","40-49","Capital and Coast",NA,"","","","",TRUE,"No"
 2020-04-02,"Female","50-59","Counties Manukau",NA,"","","","",TRUE,"No"
 2020-04-02,"Female","50-59","Counties Manukau",NA,"","","","",TRUE,"No"
@@ -539,7 +521,7 @@
 2020-04-02,"Male","50-59","Hawke's Bay",NA,"United States of America","NZ5005","24/03/2020","24/03/2020",TRUE,"Yes"
 2020-04-02,"Female","20-29","Hutt Valley",NA,"Australia","EK5037","24/03/2020","24/03/2020",TRUE,"Yes"
 2020-04-02,"Female","20-29","Hutt Valley",NA,"Australia","EK5037","24/03/2020","24/03/2020",TRUE,"Yes"
-2020-04-02,"Female","20-29","Hutt Valley",NA,"New Zealand","QF171","","24/03/2020",TRUE,"Yes"
+2020-04-02,"Female","20-29","Hutt Valley",NA,"New Zealand","QF0171","","24/03/2020",TRUE,"Yes"
 2020-04-02,"Male","50-59","Hutt Valley",NA,"","","","",TRUE,"No"
 2020-04-02,"Male","30-39","MidCentral",NA,"Australia","NZ5103","18/03/2020","18/03/2020",TRUE,"Yes"
 2020-04-02,"Female","20-29","Nelson Marlborough",NA,"United States of America","","","19/03/2020",TRUE,"Yes"
@@ -549,7 +531,7 @@
 2020-04-02,"Female","15-19","Southern",NA,"","","","",TRUE,"No"
 2020-04-02,"Female","20-29","Southern",NA,"","","","",TRUE,"No"
 2020-04-02,"Female","20-29","Southern",NA,"United Arab Emirates","","","21/03/2020",TRUE,"Yes"
-2020-04-02,"Female","20-29","Southern",NA,"United Kingdom","NZ535","20/03/2020","20/03/2020",TRUE,"Yes"
+2020-04-02,"Female","20-29","Southern",NA,"United Kingdom","NZ0535","20/03/2020","20/03/2020",TRUE,"Yes"
 2020-04-02,"Female","50-59","Southern",NA,"","","","",TRUE,"No"
 2020-04-02,"Female","50-59","Southern",NA,"","","","",TRUE,"No"
 2020-04-02,"Female","60-69","Southern",NA,"","","","",TRUE,"No"
@@ -569,37 +551,37 @@
 2020-04-02,"Male","30-39","Waikato",NA,"","","","",TRUE,"No"
 2020-04-02,"Male","50-59","Waikato",NA,"United States of America","","","25/03/2020",TRUE,"Yes"
 2020-04-02,"Male","60-69","Waikato",NA,"","","","",TRUE,"No"
-2020-04-02,"Male","60-69","Waikato",NA,"United States of America","NZ1","30/03/2020","1/04/2020",TRUE,"Yes"
+2020-04-02,"Male","60-69","Waikato",NA,"United States of America","NZ001","30/03/2020","1/04/2020",TRUE,"Yes"
 2020-04-02,"Female","50-59","Waitemata",NA,"","","","",TRUE,""
 2020-04-02,"Male","20-29","Waitemata",NA,"United States of America","QF143","18/03/2020","18/03/2020",TRUE,"Yes"
 2020-04-02,"Male","40-49","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-02,"Male","60-69","Waitemata",NA,"","","","",TRUE,"No"
+2020-04-02,"Male","60-69","Waitemata",NA,"","","","",TRUE,""
 2020-04-02,"Female","30-39","Whanganui",NA,"United Kingdom","NZ3285","23/03/2020","24/03/2020",TRUE,"Yes"
 2020-04-02,"Male","30-39","Whanganui",NA,"United Kingdom","","","24/03/2020",TRUE,"Yes"
-2020-04-02,"Female","30-39","Bay of Plenty",NA,"","","","",FALSE,"No"
-2020-04-02,"Female","15-19","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-02,"Female","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-02,"Female","40-49","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-02,"Female","60-69","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-02,"Male","1-4","Canterbury",NA,"","","","",FALSE,""
-2020-04-02,"Male","30-39","Canterbury",NA,"","","","",FALSE,"No"
-2020-04-02,"Female","20-29","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-02,"Female","30-39","Capital and Coast",NA,"Australia","","","25/03/2020",FALSE,"Yes"
-2020-04-02,"Female","15-19","Counties Manukau",NA,"","","","",FALSE,""
-2020-04-02,"Female","70+","Hawke's Bay",NA,"","","","",FALSE,""
-2020-04-02,"Female","70+","Hawke's Bay",NA,"","","","",FALSE,""
-2020-04-02,"Male","1-4","Hawke's Bay",NA,"","NZ5015","22/03/2020","",FALSE,""
-2020-04-02,"Male","50-59","Southern",NA,"","","","",FALSE,"No"
-2020-04-02,"Male","1-4","Waikato",NA,"","","","",FALSE,"No"
-2020-04-02,"Female","50-59","Wairarapa",NA,"","","","",FALSE,"No"
-2020-04-02,"Male","40-49","Wairarapa",NA,"","","","",FALSE,"No"
-2020-04-02,"Female","15-19","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-02,"Female","50-59","Waitemata",NA,"","","","",FALSE,"No"
-2020-04-02,"Male","20-29","Waitemata",NA,"","","","",FALSE,""
-2020-04-02,"Male","20-29","Waitemata",NA,"","","","",FALSE,""
-2020-04-02,"Male","30-39","Waitemata",NA,"","","","",FALSE,""
-2020-04-02,"Male","40-49","Waitemata",NA,"United States of America","","","11/03/2020",FALSE,"Yes"
-2020-04-02,"Male","50-59","Waitemata",NA,"","","","",FALSE,"No"
+2020-04-02,"Female","30-39","Bay of Plenty","No","","","","",FALSE,NA
+2020-04-02,"Male","1-4","Canterbury","","","","","",FALSE,NA
+2020-04-02,"Male","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-02,"Female","15-19","Canterbury","No","","","","",FALSE,NA
+2020-04-02,"Female","60-69","Canterbury","No","","","","",FALSE,NA
+2020-04-02,"Female","40-49","Canterbury","No","","","","",FALSE,NA
+2020-04-02,"Female","30-39","Canterbury","No","","","","",FALSE,NA
+2020-04-02,"Female","20-29","Capital and Coast","No","","","","",FALSE,NA
+2020-04-02,"Female","30-39","Capital and Coast","Yes","Australia","","","25/03/2020",FALSE,NA
+2020-04-02,"Female","15-19","Counties Manukau","","","","","",FALSE,NA
+2020-04-02,"Female","70+","Hawke's Bay","","","","","",FALSE,NA
+2020-04-02,"Female","70+","Hawke's Bay","","","","","",FALSE,NA
+2020-04-02,"Male","1-4","Hawke's Bay","","","NZ5015","22/03/2020","",FALSE,NA
+2020-04-02,"Male","50-59","Southern","No","","","","",FALSE,NA
+2020-04-02,"Male","1-4","Waikato","No","","","","",FALSE,NA
+2020-04-02,"Female","50-59","Wairarapa","No","","","","",FALSE,NA
+2020-04-02,"Male","40-49","Wairarapa","No","","","","",FALSE,NA
+2020-04-02,"Female","15-19","Waitemata","No","","","","",FALSE,NA
+2020-04-02,"Male","50-59","Waitemata","No","","","","",FALSE,NA
+2020-04-02,"Male","40-49","Waitemata","Yes","United States of America","","","11/03/2020",FALSE,NA
+2020-04-02,"Male","30-39","Waitemata","","","","","",FALSE,NA
+2020-04-02,"Female","50-59","Waitemata","","","","","",FALSE,NA
+2020-04-02,"Male","20-29","Waitemata","","","","","",FALSE,NA
+2020-04-02,"Male","20-29","Waitemata","","","","","",FALSE,NA
 2020-04-01,"Female","20-29","Auckland",NA,"United States of America","AA83","23/03/2020","25/03/2020",TRUE,"Yes"
 2020-04-01,"Female","30-39","Auckland",NA,"United Kingdom","EK450","23/03/2020","24/03/2020",TRUE,"Yes"
 2020-04-01,"Female","40-49","Auckland",NA,"Canada","","","25/03/2020",TRUE,"Yes"
@@ -607,13 +589,13 @@
 2020-04-01,"Male","60-69","Auckland",NA,"","","","",TRUE,"No"
 2020-04-01,"Male","60-69","Auckland",NA,"Australia","","","22/03/2020",TRUE,"Yes"
 2020-04-01,"Male","70+","Auckland",NA,"United Kingdom","QR920","19/03/2020","24/03/2020",TRUE,"Yes"
-2020-04-01,"Female","20-29","Bay of Plenty",NA,"Qatar","QR920","27/03/2020","27/03/2020",TRUE,"Yes"
-2020-04-01,"Male","20-29","Bay of Plenty",NA,"United Kingdom","QR920","27/03/2020","27/03/2020",TRUE,"Yes"
-2020-04-01,"Male","60-69","Bay of Plenty",NA,"","NZ5145","24/03/2020","",TRUE,"No"
+2020-04-01,"Female","20-29","Bay of Plenty",NA,"Qatar","QR0920","27/03/2020","27/03/2020",TRUE,"Yes"
+2020-04-01,"Male","20-29","Bay of Plenty",NA,"United Kingdom","QR0920","27/03/2020","27/03/2020",TRUE,"Yes"
+2020-04-01,"Male","60-69","Bay of Plenty",NA,"","","","",TRUE,"No"
 2020-04-01,"Male","60-69","Bay of Plenty",NA,"England","EK448","22/03/2020","22/03/2020",TRUE,"Yes"
 2020-04-01,"Male","70+","Bay of Plenty",NA,"Polynesia","HA445","","17/03/2020",TRUE,"Yes"
 2020-04-01,"Male","40-49","Capital and Coast",NA,"","","","",TRUE,"No"
-2020-04-01,"Female","20-29","Counties Manukau",NA,"Singapore","","","17/03/2020",TRUE,"Yes"
+2020-04-01,"Female","20-29","Counties Manukau",NA,"","","","",TRUE,""
 2020-04-01,"Female","20-29","Counties Manukau",NA,"Singapore","","","17/03/2020",TRUE,"Yes"
 2020-04-01,"Male","60-69","Counties Manukau",NA,"Australia","","","7/03/2020",TRUE,"Yes"
 2020-04-01,"Female","30-39","Hawke's Bay",NA,"","NZ5015","22/03/2020","",TRUE,"No"
@@ -652,7 +634,7 @@
 2020-04-01,"Male","50-59","Waikato",NA,"","","","",TRUE,"No"
 2020-04-01,"Male","50-59","Waikato",NA,"","","","",TRUE,"No"
 2020-04-01,"Female","15-19","Waitemata",NA,"","","","",TRUE,"No"
-2020-04-01,"Female","20-29","Waitemata",NA,"Australia","QF143","17/03/2020","17/04/2020",TRUE,"Yes"
+2020-04-01,"Female","20-29","Waitemata",NA,"","","","",TRUE,""
 2020-04-01,"Female","50-59","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-01,"Female","50-59","Waitemata",NA,"","","","",TRUE,"No"
 2020-04-01,"Male","30-39","Waitemata",NA,"","","","",TRUE,"No"
@@ -661,19 +643,19 @@
 2020-04-01,"Male","30-39","West Coast",NA,"","","","",TRUE,"No"
 2020-04-01,"Female","20-29","Whanganui",NA,"Philippines","","","19/03/2020",TRUE,"Yes"
 2020-04-01,"Male","20-29","Whanganui",NA,"Philippines","","","19/03/2020",TRUE,"Yes"
-2020-04-01,"Female","10-14","Auckland",NA,"","","","",FALSE,""
-2020-04-01,"Female","30-39","Canterbury",NA,"Australia","EK412","21/03/2020","22/03/2020",FALSE,"Yes"
-2020-04-01,"Female","50-59","Canterbury",NA,"","","","",FALSE,""
-2020-04-01,"Female","30-39","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-01,"Male","30-39","Capital and Coast",NA,"","","","",FALSE,"No"
-2020-04-01,"Male","50-59","Nelson Marlborough",NA,"Singapore","","","18/03/2020",FALSE,"Yes"
-2020-04-01,"Male","20-29","Southern",NA,"Australia","","","",FALSE,"Yes"
-2020-04-01,"Female","1-4","Waikato",NA,"","","","",FALSE,"No"
-2020-04-01,"Female","20-29","Waitemata",NA,"","","","21/03/2020",FALSE,"Yes"
-2020-04-01,"Male","20-29","Waitemata",NA,"","","","",FALSE,""
-2020-04-01,"Male","50-59","Waitemata",NA,"","","","",FALSE,""
-2020-04-01,"Male","60-69","Waitemata",NA,"","","","",FALSE,""
-2020-04-01,"Male","60-69","Waitemata",NA,"","","","",FALSE,"No"
+2020-04-01,"Female","10-14","Auckland","","","","","",FALSE,NA
+2020-04-01,"Female","30-39","Canterbury","Yes","Australia","EK412","21/03/2020","22/03/2020",FALSE,NA
+2020-04-01,"Female","50-59","Canterbury","","","","","",FALSE,NA
+2020-04-01,"Male","30-39","Capital and Coast","No","","","","",FALSE,NA
+2020-04-01,"Female","30-39","Capital and Coast","No","","","","",FALSE,NA
+2020-04-01,"Male","50-59","Nelson Marlborough","Yes","Singapore","","","18/03/2020",FALSE,NA
+2020-04-01,"Male","20-29","Southern","Yes","Australia","","","",FALSE,NA
+2020-04-01,"Female","1-4","Waikato","No","","","","",FALSE,NA
+2020-04-01,"Male","20-29","Waitemata","","","","","",FALSE,NA
+2020-04-01,"Male","60-69","Waitemata","No","","","","",FALSE,NA
+2020-04-01,"Male","50-59","Waitemata","","","","","",FALSE,NA
+2020-04-01,"Male","60-69","Waitemata","","","","","",FALSE,NA
+2020-04-01,"Female","20-29","Waitemata","Yes","","","","21/03/2020",FALSE,NA
 2020-03-31,"Female","40-49","Auckland","No",NA,NA,NA,NA,TRUE,NA
 2020-03-31,"Female","40-49","Auckland","Yes","Australia",NA,NA,"23/03/2020",TRUE,NA
 2020-03-31,"Female","20-29","Auckland",NA,NA,NA,NA,NA,TRUE,NA

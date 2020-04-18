@@ -76,11 +76,14 @@ if(last_date != updated_date) {
   current_Cases_summary_tabs <- 
     current_Cases_summary %>% 
     html_table() %>% 
-    "[["(1) %>% 
-    rename(
-      "x" = "",
-      "total_to_date" = "Total to date",
-      "new_in_last_24_hours" = "New in last 24 hours")  %>% 
+    "[["(1)
+  names(current_Cases_summary_tabs) <- 
+    c("x",  "total_to_date",  "new_in_last_24_hours")
+  
+  
+  
+  current_Cases_summary_tabs <- 
+    current_Cases_summary_tabs %>% 
     mutate(
       total_to_date = 
         as.numeric(str_replace(total_to_date, ",", "")))

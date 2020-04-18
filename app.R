@@ -66,8 +66,7 @@ ui <- dashboardPage(
     box(
       h4("Contact:"),
       h5(a("Kevin Chang", href = "mailto:kevin.ct.chang@gmail.com")),
-      p(
-        "Source code can be founded in ",
+      p(        "Source code can be founded in ",
         a("here", 
           href = "https://github.com/kcha193/covid19nz")
       ),
@@ -86,12 +85,14 @@ ui <- dashboardPage(
       width = 7,
       box(
         title = "Daily data from Ministry of Health of NZ and Johns Hopkins CSSE",
-        valueBoxOutput("nz_Total", 4),
-        valueBoxOutput("nz_Death", 4),
-        valueBoxOutput("nz_Recovered", 4),
-        valueBoxOutput("global_Total", 4),
-        valueBoxOutput("global_Death", 4),
-        valueBoxOutput("global_Recovered", 4),
+        valueBoxOutput("nz_Total", 3),
+        valueBoxOutput("nz_Death", 3),
+        valueBoxOutput("nz_Recovered", 3),
+        valueBoxOutput("nz_Active", 3),
+        valueBoxOutput("global_Total", 3),
+        valueBoxOutput("global_Death", 3),
+        valueBoxOutput("global_Recovered", 3),
+        valueBoxOutput("global_Active", 3),
         width = 12
       ),
       tabBox(
@@ -283,6 +284,34 @@ server <- function(input, output, session) {
 
   })
   
+  output$nz_Active <- renderValueBox({
+    
+    latest <- 
+      daily_counts$totalCases %>% 
+      last() - 
+      daily_counts$totalRecovered %>% 
+      last()
+    
+    yesterday <- 
+      daily_counts$totalCases %>% 
+      nth(-2) - 
+      daily_counts$totalRecovered %>% 
+      nth(-2)
+    
+    change <- latest - yesterday
+    
+    valueBox(
+      scales::comma(latest), 
+      subtitle =
+        paste0(" (", 
+               ifelse(change >= 0, "+", "-"), 
+               scales::comma(abs(change)), ") active cases in NZ"),
+      color = "yellow"
+    )
+    
+  })
+  
+  
   output$global_Total <- renderValueBox({
    
     latest <- 
@@ -309,6 +338,42 @@ server <- function(input, output, session) {
       color = "red"
     )
  
+  })
+  
+  output$global_Active <- renderValueBox({
+    
+    latest <- 
+      global_cases%>% 
+      rename(  Count = last_col()) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count) - 
+      global_recovered%>% 
+      rename(  Count = last_col()) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count)
+    
+    yesterday <- 
+      global_cases%>% 
+      rename(  Count = last_col(1)) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count) - 
+      global_recovered%>% 
+      rename(  Count = last_col(1)) %>% 
+      summarise( Count = sum(Count)) %>% 
+      pull(Count)
+    
+    change <- latest - yesterday
+    
+    valueBox(
+      scales::comma(latest), 
+      subtitle =
+        paste0(" (", 
+               ifelse(change >= 0, "+", "-"), 
+               scales::comma(abs(change)), ") active cases globally"),
+      
+      color = "yellow"
+    )
+    
   })
   
   output$global_Death <- renderValueBox({
@@ -375,12 +440,12 @@ server <- function(input, output, session) {
       
       
       covid_19_daily_nz() %>% 
-        mutate(active = totalConfirmed - totalRecovered) %>% 
+        mutate(active = totalCases - totalRecovered) %>% 
         select(Date, totalCases, totalConfirmed, totalDeaths, active) %>% 
         rename('Total cases' = totalCases, 
                'Total confirmed Cases' = totalConfirmed,
                'Total death' = totalDeaths,
-               'Total active confirmed cases' = active)  %>% 
+               'Total active cases' = active)  %>% 
         gather("Type", "Count", -Date) %>% 
         hchart("line", hcaes(x = Date, y = Count, group = Type)) 
       

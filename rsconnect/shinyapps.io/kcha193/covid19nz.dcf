@@ -5,9 +5,8 @@ account: kcha193
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2014695
-bundleId: 3005008
+bundleId: 3026473
 url: https://kcha193.shinyapps.io/covid19nz/
-when: 1586744185.37339
+when: 1587120684.17465
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: cases_2020-04-12.csv|days_2020-04-12.csv
