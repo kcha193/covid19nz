@@ -92,7 +92,7 @@ if(last_date != updated_date) {
   Transmission_type <- 
     current_Cases_summary %>% 
     html_table() %>% 
-    "[["(4) %>% 
+    "[["(5) %>% 
     rename(
       "Transmission_type" = "Transmission type",
       "percent_of_cases" = "% of cases")  %>% 
@@ -112,8 +112,7 @@ if(last_date != updated_date) {
     daily_counts_num %>% 
     rbind(
       c(temp_updated,
-        round(temp_updated[6] * Transmission_type$percent_of_cases)[c(1,2,4,3)], 
-        temp_updated[6])) %>% 
+        round(temp_updated[6] * Transmission_type$percent_of_cases)[c(1,2,5,4,3)])) %>% 
     mutate(Date = c(daily_counts$Date, updated_date)) %>% 
     mutate(date = format(Date,  "%d/%m/%Y"))
 

@@ -46,10 +46,7 @@ ui <- dashboardPage(
     #               value = FALSE, width = "200%"),
     h4("Note:"),
     p(
-      "Plots are based from the data collected by Chris Knox of NZ Herald data journalism team in ",
-      a("here",
-        href = "https://github.com/nzherald/nz-covid19-data"),
-      " and Ministry of Health current cases website in ",
+      "Plots are based from the data in the Ministry of Health current cases website in ",
       a(
         "here",
         href = "https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases"
@@ -57,6 +54,9 @@ ui <- dashboardPage(
       ", which is under the Ministry of Health's ",
       a("creative commons license",
         href = "https://www.health.govt.nz/about-site/copyright"),
+      " and CSV file of daily cases was initiated by Chris Knox in ",
+      a("here",
+        href = "https://github.com/nzherald/nz-covid19-data"),
       ". The global data came from Johns Hopkins CSSE in",
       a("here",
         href = "https://github.com/CSSEGISandData/COVID-19"),
@@ -104,10 +104,10 @@ ui <- dashboardPage(
           "Global",
           highchartOutput("line_plot_global",  height = "480px")
         ),
-        tabPanel(
-          "Transmission",
-          highchartOutput("line_plot_cause",  height = "480px")
-        ),
+        # tabPanel(
+        #   "Transmission",
+        #   highchartOutput("line_plot_cause",  height = "480px")
+        # ),
         width = 12,
         height = 500
       )
@@ -462,13 +462,14 @@ server <- function(input, output, session) {
   output$line_plot_cause <- 
     renderHighchart({
       
-      covid_19_daily_nz() %>% 
-        select(Date, overseas, contact, investigating, community) %>% 
-        rename('Recent overseas travel' = overseas, 
-               'Contact with known case	' = contact,
-               'Community transmission' = community,
-               'Source under investigation' = investigating)  %>% 
-        na.omit() %>% 
+      covid_19_daily_nz()  %>% 
+        select(Date, overseas, contact, investigating, community, established) %>% 
+        rename('Imported cases' = overseas, 
+               'Imported related cases	' = contact,
+               'Locally acquired cases, unknown source' = community,
+               'Source under investigation' = investigating,
+               'Locally acquired cases, epidemiologically linked' = established
+               )  %>% 
         gather("Type", "Count", -Date) %>% 
         hchart("line", hcaes(x = Date, y = Count, group = Type))
     })
@@ -634,7 +635,7 @@ server <- function(input, output, session) {
     
     data_map_final <- data_map_final()
     
-    pal <- colorNumeric(palette = brewer.pal(9,"Blues"), 
+    pal <- colorNumeric(palette = brewer.pal(9,"Reds"), 
                         domain = data_map_final@data$n)
     
     m <- 
@@ -646,7 +647,7 @@ server <- function(input, output, session) {
                   layerId = data_map_final@data$DHB, 
                   labelOptions = labelOptions(textsize = "20px")) %>%
       addLegend(pal = pal, values = ~n, opacity = 1.0,
-                title = "Number", 
+                title = "Total cases", 
                 position = "bottomright",
                 na.label = "Missing")  %>%
       setView(lng=172, lat= -40.90056 , zoom = 5.5)  
